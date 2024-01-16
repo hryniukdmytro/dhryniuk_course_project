@@ -8,6 +8,7 @@ Feature: Dashboard Project Test cases
     Then New project should be opened and displayed
 
   Scenario: Verify that new task can be created for a project
+    # Step that's failing
     Given User should have a project (Project name for test: 'Project with one task')
     Given User should have project opened
     When Click on gear icon to open project configurations dropdown

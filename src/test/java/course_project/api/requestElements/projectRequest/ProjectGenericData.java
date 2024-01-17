@@ -1,4 +1,4 @@
-package course_project.api.RequestStructure.Project;
+package course_project.api.requestElements.projectRequest;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -12,7 +12,7 @@ import org.testng.annotations.DataProvider;
         glue = {"stepsDefinitions"}
 )
 
-public class LoginTestRunner extends AbstractTestNGCucumberTests {
+public class TestRunner extends AbstractTestNGCucumberTests {
     @Override
     @DataProvider(parallel = true)
     public Object[][] scenarios() {

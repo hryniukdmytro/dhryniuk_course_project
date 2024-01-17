@@ -9,6 +9,7 @@ import org.testng.Assert;
 
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.refresh;
+import static course_project.utils.EnvPropertiesSetup.*;
 
 public class MainPage extends MainPageElements {
 
@@ -20,8 +21,8 @@ public class MainPage extends MainPageElements {
 
     @Given("User should be logged in")
     public void createUserSession() {
-        open("http://localhost");
-        WebDriverRunner.getWebDriver().manage().addCookie(new Cookie("KB_SID", "du4mo4faq8ohe0b51qv5ri530q"));
+        open(BASE_URL);
+        WebDriverRunner.getWebDriver().manage().addCookie(new Cookie(COOKIE_NAME, COOKIE_VALUE));
         refresh();
     }
 }

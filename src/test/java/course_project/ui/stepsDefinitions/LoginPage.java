@@ -8,6 +8,8 @@ import org.testng.Assert;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.open;
+import static course_project.utils.EnvPropertiesSetup.TESTDATA_LOGIN;
+import static course_project.utils.EnvPropertiesSetup.TESTDATA_PASSWORD;
 
 public class LoginPage extends LoginPageElements {
 
@@ -16,13 +18,13 @@ public class LoginPage extends LoginPageElements {
         open("http://localhost");
     }
 
-    @When("Enter 'admin' as a username and 'admin' as a password")
+    @When("Enter valid credentials")
     public void enterValidCredentials() {
         loginTextField().shouldBe(visible);
         passwordTextField().shouldBe(visible);
         loginButton().shouldBe(visible);
-        loginTextField().sendKeys("admin");
-        passwordTextField().sendKeys("admin");
+        loginTextField().sendKeys(TESTDATA_LOGIN);
+        passwordTextField().sendKeys(TESTDATA_PASSWORD);
     }
 
     @When("Enter invalid username {} and password {}")

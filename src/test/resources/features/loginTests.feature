@@ -2,7 +2,7 @@ Feature: Login Test Cases
 
   Scenario: Verify that login with valid credentials is successful
     Given Navigate to login page in browser
-    When Enter 'admin' as a username and 'admin' as a password
+    When Enter valid credentials
     And Click on login button
     Then Main page should be displayed after successful login
 

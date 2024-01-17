@@ -57,13 +57,6 @@ public class MainPageElements {
         return $("[id='form-name']");
     }
 
-    public SelenideElement projectIdentifierTextField() {
-        return $("[id='form-identifier']");
-    }
-
-    public SelenideElement newTaskDescriptionTextField() {
-        return $("[name='description']");
-    }
 
     public SelenideElement commentTextArea() {
         return $("div.js-text-editor-rendered:nth-child(2) div.text-editor:nth-child(2) div.text-editor-write-mode > textarea:nth-child(2)");

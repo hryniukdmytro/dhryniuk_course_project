@@ -1,10 +1,9 @@
-package course_project.api.RequestStructure.Project;
+package course_project.api.requestElements.projectRequest;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import java.time.LocalDate;
 
 @Data
 @NoArgsConstructor
@@ -13,5 +12,4 @@ import java.time.LocalDate;
 public class ProjectParamsData {
     private String name;
     private int ownerId;
-
 }

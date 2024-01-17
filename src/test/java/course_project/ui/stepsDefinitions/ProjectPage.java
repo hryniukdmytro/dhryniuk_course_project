@@ -4,15 +4,12 @@ import course_project.ui.elements.MainPageElements;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
+import static course_project.utils.EnvPropertiesSetup.*;
 
 import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 
 public class ProjectPage extends MainPageElements {
-
-    private String expectedProjectTitle;
-    private String addedComment;
 
     // <----- Clicks ------>
 
@@ -85,28 +82,23 @@ public class ProjectPage extends MainPageElements {
 
     // <------ Fills ------>
 
-    @When("Fill the form with valid data \\(name {string})")
-    public void fillNewProjectForm(String projectName) {
-        expectedProjectTitle = projectName;
+    @When("Fill the project creation form")
+    public void fillNewProjectForm() {
         projectNameTextField().shouldBe(visible);
 
-        projectNameTextField().sendKeys(projectName);
+        projectNameTextField().sendKeys(TESTDATA_PROJECT_NAME);
     }
 
-    @When("Fill the task creation form \\(task name {string} and description {string})")
-    public void fillTheTaskCreationForm(String taskName, String taskDesc) {
+    @When("Fill the task creation form")
+    public void fillTheTaskCreationForm() {
         newTaskTitle().shouldBe(visible);
-        newTaskDescriptionTextField().shouldBe(visible);
-
-        newTaskTitle().sendKeys(taskName);
-        newTaskDescriptionTextField().sendKeys(taskDesc);
+        newTaskTitle().sendKeys(TESTDATA_TASK_TITLE);
     }
 
-    @When("Fill the comment form with valid data \\({string})")
-    public void fillTheCommentForm(String commentToAdd) {
-        addedComment = commentToAdd;
+    @When("Fill the comment form")
+    public void fillTheCommentForm() {
         commentTextArea().shouldBe(visible);
-        commentTextArea().sendKeys(commentToAdd);
+        commentTextArea().sendKeys(TESTDATA_COMMENT_TEXT);
     }
 
 
@@ -114,7 +106,7 @@ public class ProjectPage extends MainPageElements {
 
     @Then("New project should be opened and displayed")
     public void isNewProjectDisplayed() {
-        $x("//h1/span[@class='title' and contains(text(), '" + expectedProjectTitle + "')]")
+        $x("//h1/span[@class='title' and contains(text(), '" + TESTDATA_PROJECT_NAME + "')]")
                 .shouldBe(visible);
     }
 
@@ -127,6 +119,6 @@ public class ProjectPage extends MainPageElements {
     @Then("Check that comment is displayed")
     public void commentIsDisplayed() {
         addedComment().shouldBe(visible);
-        Assert.assertEquals(addedComment().getText(),addedComment);
+        Assert.assertEquals(addedComment().getText(), TESTDATA_COMMENT_TEXT);
     }
 }

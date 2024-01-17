@@ -11,7 +11,7 @@ import static com.codeborne.selenide.Selenide.open;
 import static course_project.utils.EnvPropertiesSetup.TESTDATA_LOGIN;
 import static course_project.utils.EnvPropertiesSetup.TESTDATA_PASSWORD;
 
-public class LoginPage extends LoginPageElements {
+public class LoginPageSteps extends LoginPageElements {
 
     @Given("Navigate to login page in browser")
     public void openLoginPage() {

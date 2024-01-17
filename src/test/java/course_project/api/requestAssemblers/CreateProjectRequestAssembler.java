@@ -1,5 +1,6 @@
 package course_project.api.requestAssemblers;
 
+import course_project.api.requestElements.genericRequestData.GenericData;
 import org.json.JSONObject;
 
 import static course_project.api.methods.ProjectMethods.METHOD_CREATE_PROJECT;
@@ -7,10 +8,11 @@ import static course_project.api.methods.ProjectMethods.METHOD_CREATE_PROJECT;
 public class CreateProjectRequestAssembler {
 
     public static JSONObject createProjectRequestAssembling() {
-        JSONObject createProjectRequestBody = new JSONObject();
-        createProjectRequestBody.put("jsonrpc", "2.0");
-        createProjectRequestBody.put("method", METHOD_CREATE_PROJECT);
-        createProjectRequestBody.put("id", "1792");
+        GenericData genericData = GenericData
+                .builder()
+                .method(METHOD_CREATE_PROJECT)
+                .build();
+        JSONObject createProjectRequestBody = new JSONObject(genericData);
 
         JSONObject createProjectParams = new JSONObject();
         createProjectParams.put("name", "Test Project");

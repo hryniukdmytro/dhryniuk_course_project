@@ -11,7 +11,7 @@ import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.refresh;
 import static course_project.utils.EnvPropertiesSetup.*;
 
-public class MainPage extends MainPageElements {
+public class MainPageSteps extends MainPageElements {
 
     @When("Main page should be displayed after successful login")
     public void isMainPageDisplayed() {

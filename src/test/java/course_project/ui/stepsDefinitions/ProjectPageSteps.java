@@ -9,7 +9,7 @@ import static course_project.utils.EnvPropertiesSetup.*;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$x;
 
-public class ProjectPage extends MainPageElements {
+public class ProjectPageSteps extends MainPageElements {
 
     // <----- Clicks ------>
 

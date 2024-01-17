@@ -1,4 +1,4 @@
-Feature: Dashboard Project Test cases
+Feature: Dashboard Project Test Сases
 
   Scenario: Verify that new project can be created
     # Preconditions

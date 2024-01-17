@@ -10,7 +10,7 @@ import static course_project.utils.EnvPropertiesSetup.*;
 public class Hooks {
 
     @Before
-    public void beforeScenario(){
+    public void beforeScenario() {
         authConstantsSetup();
         cookieConstantsSetup();
         testDataConstantsSetup();

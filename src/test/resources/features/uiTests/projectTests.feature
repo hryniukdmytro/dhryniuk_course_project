@@ -12,7 +12,8 @@ Feature: [UI] Project Test Сases
 
   Scenario: Verify that new task can be created for a project
     # Preconditions
-    Given User should have a project
+    When Send project creation API request
+    Then Project should be created
     Given User should be logged in
     Given User should have project opened
     # Steps
@@ -28,10 +29,11 @@ Feature: [UI] Project Test Сases
 
   Scenario: Verify that new task can be closed
     # Preconditions
-    Given User should have a project
+    When Send project creation API request
+    Then Project should be created
+    When Send task creation API request
+    Then Task should be created
     Given User should be logged in
-    Given User should have project opened
-    Given Project should have active task
     Given User should have task opened
     # Steps
     When Click the 'Close this task' button
@@ -41,10 +43,11 @@ Feature: [UI] Project Test Сases
 
   Scenario: Verify that comment can be added to the task
     # Preconditions
-    Given User should have a project
+    When Send project creation API request
+    Then Project should be created
+    When Send task creation API request
+    Then Task should be created
     Given User should be logged in
-    Given User should have project opened
-    Given Project should have active task
     Given User should have task opened
     # Steps
     When Click the 'Add a comment' button

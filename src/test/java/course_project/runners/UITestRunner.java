@@ -9,7 +9,8 @@ import org.testng.annotations.DataProvider;
                 "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"
         },
         features = "src/test/resources/features/uiTests",
-        glue = {"course_project/ui/stepsDefinitionsUI"}
+        glue = {"course_project/ui/stepsDefinitionsUI",
+                "course_project/api/stepsDefinitionsAPI"}
 )
 
 public class UITestRunner extends AbstractTestNGCucumberTests {

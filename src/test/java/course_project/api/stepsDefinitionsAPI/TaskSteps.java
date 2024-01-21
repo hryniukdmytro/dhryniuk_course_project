@@ -9,11 +9,11 @@ import static course_project.api.queries.QueryFormats.*;
 import static course_project.api.requestAssemblers.CreateTaskRequestAssembler.assembleCreateTaskRequest;
 import static course_project.api.requestAssemblers.GetTaskRequestAssembler.assembleGetTaskRequest;
 import static course_project.api.requestAssemblers.RemoveTaskRequestAssembler.assembleRemoveTaskRequest;
-import static course_project.ui.stepsDefinitionsUI.preAndPostConditions.PreConditions.newProjectId;
+import static course_project.api.stepsDefinitionsAPI.ProjectSteps.newProjectId;
 import static course_project.utils.EnvPropertiesSetup.*;
 
 public class TaskSteps {
-    private static String newTaskId;
+    public static String newTaskId;
 
     @When("Send task creation API request")
     public void createTaskViaAPI() {

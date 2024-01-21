@@ -12,7 +12,7 @@ import static course_project.api.requestAssemblers.RemoveProjectRequestAssembler
 import static course_project.utils.EnvPropertiesSetup.*;
 
 public class ProjectSteps {
-    private static String newProjectId;
+    public static String newProjectId;
 
     @When("Send project creation API request")
     public void createProjectViaAPI() {

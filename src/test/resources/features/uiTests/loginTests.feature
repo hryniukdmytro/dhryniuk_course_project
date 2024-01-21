@@ -1,4 +1,4 @@
-Feature: Login Test Cases
+Feature: [UI] Login Test Cases
 
   Scenario: Verify that login with valid credentials is successful
     Given Navigate to login page in browser

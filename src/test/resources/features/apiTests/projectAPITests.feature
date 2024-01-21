@@ -1,4 +1,4 @@
-Feature: Project Creation & Project Removing Test Cases
+Feature: [API] Project Creation & Project Removing Test Cases
 
   Scenario: Verify that project can be created & removed via API
     When Send project creation API request

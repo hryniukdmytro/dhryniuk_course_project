@@ -85,7 +85,6 @@ public class ProjectPageSteps extends MainPageElements {
     @When("Fill the project creation form")
     public void fillNewProjectForm() {
         projectNameTextField().shouldBe(visible);
-
         projectNameTextField().sendKeys(TESTDATA_PROJECT_NAME);
     }
 

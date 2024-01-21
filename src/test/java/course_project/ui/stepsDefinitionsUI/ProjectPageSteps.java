@@ -1,4 +1,4 @@
-package course_project.ui.stepsDefinitions;
+package course_project.ui.stepsDefinitionsUI;
 
 import course_project.ui.elements.MainPageElements;
 import io.cucumber.java.en.Then;

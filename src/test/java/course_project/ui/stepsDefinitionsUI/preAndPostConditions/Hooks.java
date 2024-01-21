@@ -1,4 +1,4 @@
-package course_project.ui.stepsDefinitions.preAndPostConditions;
+package course_project.ui.stepsDefinitionsUI.preAndPostConditions;
 
 import com.codeborne.selenide.Selenide;
 import io.cucumber.java.After;

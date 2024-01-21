@@ -1,23 +1,23 @@
-package course_project.ui.stepsDefinitions.preAndPostConditions;
+package course_project.ui.stepsDefinitionsUI.preAndPostConditions;
 
 import com.codeborne.selenide.Selenide;
 import io.cucumber.java.en.Given;
 import io.restassured.response.Response;
 
 import static course_project.api.queries.QueryFormats.postRequest;
-import static course_project.api.requestAssemblers.CreateProjectRequestAssembler.createProjectRequestAssembling;
-import static course_project.api.requestAssemblers.CreateTaskRequestAssembler.createTaskRequestAssembling;
+import static course_project.api.requestAssemblers.CreateProjectRequestAssembler.assembleCreateProjectRequest;
+import static course_project.api.requestAssemblers.CreateTaskRequestAssembler.assembleCreateTaskRequest;
 import static course_project.utils.EnvPropertiesSetup.*;
 
 public class PreConditions {
-    String newProjectId;
-    String newTaskId;
+    public static String newProjectId;
+    private static String newTaskId;
 
 
     @Given("User should have a project")
-    public void createProjectViaAPI() {
+    public void prepareProjectViaAPI() {
         Response projectCreationResponse = postRequest(API_USERNAME, API_TOKEN,
-                createProjectRequestAssembling().toString());
+                assembleCreateProjectRequest().toString());
         projectCreationResponse.then().statusCode(200);
         newProjectId = projectCreationResponse.jsonPath().getString("result");
     }
@@ -29,9 +29,9 @@ public class PreConditions {
     }
 
     @Given("Project should have active task")
-    public void createTask() {
+    public void prepareTaskViaAPI() {
         Response taskCreationResponse = postRequest(API_USERNAME, API_TOKEN,
-                createTaskRequestAssembling(newProjectId).toString());
+                assembleCreateTaskRequest(newProjectId).toString());
         taskCreationResponse.then().statusCode(200);
         newTaskId = taskCreationResponse.jsonPath().getString("result");
     }

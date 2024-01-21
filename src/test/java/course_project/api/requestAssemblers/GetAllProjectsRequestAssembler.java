@@ -7,7 +7,7 @@ import static course_project.api.methods.ProjectMethods.METHOD_GET_ALL_PROJECTS;
 
 public class GetAllProjectsRequestAssembler {
 
-    public static JSONObject getAllProjectRequestAssembler() {
+    public static JSONObject assembleGetAllProjectRequest() {
         GenericData genericData = GenericData
                 .builder()
                 .method(METHOD_GET_ALL_PROJECTS)

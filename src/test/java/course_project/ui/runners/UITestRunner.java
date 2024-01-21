@@ -8,11 +8,11 @@ import org.testng.annotations.DataProvider;
         plugin = {
                 "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"
                 },
-        features = "src/test/resources/features",
-        glue = {"course_project/ui/stepsDefinitions"}
+        features = "src/test/resources/features/uiTests",
+        glue = {"course_project/ui/stepsDefinitionsUI"}
 )
 
-public class TestRunner extends AbstractTestNGCucumberTests {
+public class UITestRunner extends AbstractTestNGCucumberTests {
     @Override
     @DataProvider()
     public Object[][] scenarios() {

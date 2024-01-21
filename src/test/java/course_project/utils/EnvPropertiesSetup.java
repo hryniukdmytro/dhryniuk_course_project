@@ -21,6 +21,8 @@ public class EnvPropertiesSetup {
     public static String TESTDATA_COMMENT_TEXT;
     public static String TESTDATA_LOGIN;
     public static String TESTDATA_PASSWORD;
+    public static String TESTDATA_NEW_USER_NAME;
+    public static String TESTDATA_NEW_USER_PASSWORD;
 
     public static void authConstantsSetup() {
         API_URL = propertyValue(PATH_TO_RESOURCE, ENV_PROPERTIES_FILE_NAME, "apiURL");
@@ -40,6 +42,8 @@ public class EnvPropertiesSetup {
         TESTDATA_COMMENT_TEXT = propertyValue(PATH_TO_RESOURCE, TESTDATA_PROPERTIES_FILE_NAME, "comment");
         TESTDATA_LOGIN = propertyValue(PATH_TO_RESOURCE, TESTDATA_PROPERTIES_FILE_NAME, "login");
         TESTDATA_PASSWORD = propertyValue(PATH_TO_RESOURCE, TESTDATA_PROPERTIES_FILE_NAME, "password");
+        TESTDATA_NEW_USER_NAME = propertyValue(PATH_TO_RESOURCE, TESTDATA_PROPERTIES_FILE_NAME, "newUserName");
+        TESTDATA_NEW_USER_PASSWORD = propertyValue(PATH_TO_RESOURCE, TESTDATA_PROPERTIES_FILE_NAME, "newUserPassword");
 
     }
 

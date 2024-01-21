@@ -7,7 +7,7 @@ import static course_project.api.methods.ProjectMethods.METHOD_REMOVE_PROJECT;
 
 public class RemoveProjectRequestAssembler {
 
-    public static JSONObject removeProjectRequestAssembling(String projectToRemoveId) {
+    public static JSONObject assembleRemoveProjectRequest(String projectIdToRemove) {
         GenericData genericData = GenericData
                 .builder()
                 .method(METHOD_REMOVE_PROJECT)
@@ -15,7 +15,7 @@ public class RemoveProjectRequestAssembler {
         JSONObject removeProjectRequestBody = new JSONObject(genericData);
 
         JSONObject removeProjectParams = new JSONObject();
-        removeProjectParams.put("project_id", projectToRemoveId);
+        removeProjectParams.put("project_id", projectIdToRemove);
 
         removeProjectRequestBody.put("params", removeProjectParams);
 

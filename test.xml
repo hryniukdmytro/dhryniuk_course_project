@@ -2,12 +2,12 @@
 <suite name="Cucumber Tests" parallel="methods">
     <test name="API Tests">
         <classes>
-            <class name="course_project.api.runners.APITestRunner"/>
+            <class name="course_project.runners.APITestRunner"/>
         </classes>
     </test>
     <test name="UI Tests">
         <classes>
-            <class name="course_project.ui.runners.UITestRunner"/>
+            <class name="course_project.runners.UITestRunner"/>
         </classes>
     </test>
 </suite>

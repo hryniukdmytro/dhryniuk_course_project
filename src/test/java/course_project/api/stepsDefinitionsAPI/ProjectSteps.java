@@ -19,8 +19,6 @@ public class ProjectSteps {
         Response projectCreationResponse = postRequest(API_USERNAME, API_TOKEN,
                 assembleCreateProjectRequest().toString());
         projectCreationResponse.then().statusCode(200);
-        projectCreationResponse.prettyPrint();
-        System.out.println("--------------------------------------");
         newProjectId = projectCreationResponse.jsonPath().getString("result");
     }
 

@@ -4,11 +4,10 @@ import course_project.ui.elements.MainPageElements;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
+
 import static course_project.utils.EnvPropertiesSetup.*;
 
 import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selenide.$x;
-
 public class ProjectPageSteps extends MainPageElements {
 
     // <----- Clicks ------>
@@ -21,8 +20,8 @@ public class ProjectPageSteps extends MainPageElements {
 
     @When("Click the 'Save' button")
     public void saveNewProject() {
-        saveProjectButton().shouldBe(visible);
-        saveProjectButton().click();
+        modalSaveButton().shouldBe(visible);
+        modalSaveButton().click();
     }
 
     @When("Click on gear icon to open project configurations dropdown")
@@ -39,8 +38,8 @@ public class ProjectPageSteps extends MainPageElements {
 
     @When("Click the 'Save' button to save the new task")
     public void clickOnSaveButton() {
-        saveTaskButton().shouldBe(visible);
-        saveTaskButton().click();
+        modalSaveButton().shouldBe(visible);
+        modalSaveButton().click();
     }
 
     @When("Open the 'List' section")
@@ -51,8 +50,8 @@ public class ProjectPageSteps extends MainPageElements {
 
     @When("Click the title of a new task")
     public void clickNewTaskTitle() {
-        taskTitleInList().shouldBe(visible);
-        taskTitleInList().click();
+        existingTaskTitle().shouldBe(visible);
+        existingTaskTitle().click();
     }
 
     @When("Click the 'Close this task' button")
@@ -73,40 +72,80 @@ public class ProjectPageSteps extends MainPageElements {
         saveCommentButton().click();
     }
 
-    @When("Confirm task closing by clicking 'Yes' in 'Close Task' pop-up")
-    public void confirmTaskClosing() {
-        confirmTaskClosingButton().shouldBe(visible);
-        confirmTaskClosingButton().click();
+    @When("Click 'Yes' in appeared modal window")
+    public void confirmModal() {
+        yesModalButton().shouldBe(visible);
+        yesModalButton().click();
     }
 
+    @When("Click on 'Close this project' button")
+    public void clickOnCloseThisProjectButton() {
+        closeThisProjectButton().shouldBe(visible);
+        closeThisProjectButton().click();
+    }
+
+    @When("Click on 'Configure this project' button")
+    public void clickConfigureThisProjectButton() {
+        configureThisProjectButton().shouldBe(visible);
+        configureThisProjectButton().click();
+    }
+
+    @When("Click 'Add a sub-task' button")
+    public void clickAddSubTaskButton() {
+        addSubTaskButton().shouldBe(visible);
+        addSubTaskButton().click();
+    }
+
+    @When("Click 'Save' button to save new sub-task")
+    public void saveNewSubTask() {
+        saveSubTaskButton().shouldBe(visible);
+        saveSubTaskButton().click();
+    }
+
+    @When("Click the 'Duplicate to project' button")
+    public void clickTheDuplicateToProjectButton() {
+        duplicateToProjectButton().shouldBe(visible);
+        duplicateToProjectButton().click();
+    }
+
+    @When("Click the link to copied task")
+    public void clickTheLinkToCopiedTask() {
+        linkToDuplicatedTask().shouldBe(visible);
+        linkToDuplicatedTask().click();
+    }
 
     // <------ Fills ------>
 
     @When("Fill the project creation form")
     public void fillNewProjectForm() {
-        projectNameTextField().shouldBe(visible);
-        projectNameTextField().sendKeys(TESTDATA_PROJECT_NAME);
+        projectNameModalTextField().shouldBe(visible);
+        projectNameModalTextField().sendKeys(TESTDATA_PROJECT_NAME);
     }
 
     @When("Fill the task creation form")
     public void fillTheTaskCreationForm() {
-        newTaskTitle().shouldBe(visible);
-        newTaskTitle().sendKeys(TESTDATA_TASK_TITLE);
+        formTitleTextField().shouldBe(visible);
+        formTitleTextField().sendKeys(TESTDATA_TASK_TITLE);
     }
 
     @When("Fill the comment form")
     public void fillTheCommentForm() {
-        commentTextArea().shouldBe(visible);
-        commentTextArea().sendKeys(TESTDATA_COMMENT_TEXT);
+        commentModalTextArea().shouldBe(visible);
+        commentModalTextArea().sendKeys(TESTDATA_COMMENT_TEXT);
     }
 
+    @When("Fill the sub-task creation form")
+    public void fillTheSubTaskCreationForm() {
+        formTitleTextField().shouldBe(visible).clear();
+        formTitleTextField().sendKeys(TESTDATA_SUBTASK_TITLE);
+    }
 
     // <----- Asserts & Checks ----->
 
     @Then("New project should be opened and displayed")
     public void isNewProjectDisplayed() {
-        $x("//h1/span[@class='title' and contains(text(), '" + TESTDATA_PROJECT_NAME + "')]")
-                .shouldBe(visible);
+        projectTitle().shouldBe(visible);
+        Assert.assertEquals(projectTitle().getText(), TESTDATA_PROJECT_NAME);
     }
 
     @Then("Check that task status is {string}")
@@ -119,5 +158,28 @@ public class ProjectPageSteps extends MainPageElements {
     public void commentIsDisplayed() {
         addedComment().shouldBe(visible);
         Assert.assertEquals(addedComment().getText(), TESTDATA_COMMENT_TEXT);
+    }
+
+    @Then("Check the that project status is {string}")
+    public void checkProjectState(String expectedProjectState) {
+        summaryProjectState().shouldBe(visible);
+        String summaryText = summaryProjectState().getText();
+
+        String[] words = summaryText.split("\\s+");
+        String actualProjectState = words[words.length - 1];
+
+        Assert.assertEquals(actualProjectState, expectedProjectState);
+    }
+
+    @Then("Check that new sub-task in created")
+    public void isNewSubTaskInCreated() {
+        existingSubTaskTitle().shouldBe(visible);
+        Assert.assertEquals(existingSubTaskTitle().getText(), TESTDATA_SUBTASK_TITLE);
+    }
+
+    @Then("Check that task is opened in {string}")
+    public void isTaskOpenedInAnotherProject(String desiredProject) {
+        projectTitle().shouldBe(visible);
+        Assert.assertEquals(projectTitle().getText(), desiredProject);
     }
 }

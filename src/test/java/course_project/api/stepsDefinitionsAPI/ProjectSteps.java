@@ -7,6 +7,7 @@ import org.testng.Assert;
 
 import static course_project.api.queries.QueryFormats.*;
 import static course_project.api.requestAssemblers.CreateProjectRequestAssembler.assembleCreateProjectRequest;
+import static course_project.api.requestAssemblers.CreateProjectRequestWithSetNameAssembler.assembleCreateProjectWithSetNameRequest;
 import static course_project.api.requestAssemblers.GetProjectByIdRequestAssembler.assembleGetProjectByIdRequest;
 import static course_project.api.requestAssemblers.RemoveProjectRequestAssembler.assembleRemoveProjectRequest;
 import static course_project.utils.EnvPropertiesSetup.*;
@@ -29,6 +30,7 @@ public class ProjectSteps {
         getProjectByIdResponse.then().statusCode(200);
 
         String actualProjectName = getProjectByIdResponse.jsonPath().getString("result.name");
+        getProjectByIdResponse.prettyPrint();
 
         Assert.assertEquals(actualProjectName, TESTDATA_PROJECT_NAME);}
 
@@ -48,5 +50,13 @@ public class ProjectSteps {
         String actualProjectState = getProjectByIdResponse.jsonPath().getString("result");
 
         Assert.assertNull(actualProjectState);
+    }
+
+    @When("Send project creation API request \\(name {string})")
+    public void createProjectWithSetNameViaAPI(String projectName) {
+        Response createProjectWithSetNameResponse = postRequest(API_USERNAME, API_TOKEN,
+                assembleCreateProjectWithSetNameRequest(projectName).toString());
+        createProjectWithSetNameResponse.then().statusCode(200);
+        newProjectId = createProjectWithSetNameResponse.jsonPath().getString("result");
     }
 }

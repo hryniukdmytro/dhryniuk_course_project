@@ -114,6 +114,12 @@ public class ProjectPageSteps extends MainPageElements {
         linkToDuplicatedTask().click();
     }
 
+    @When("Click 'Save' button to copy the task")
+    public void clickSaveButtonToCopyTheTask() {
+        duplicateTaskToAnotherProjectSaveButton().shouldBe(visible);
+        duplicateTaskToAnotherProjectSaveButton().click();
+    }
+
     // <------ Fills ------>
 
     @When("Fill the project creation form")

@@ -1,4 +1,4 @@
-package course_project.api.requestElements.taskRequest;
+package course_project.api.requestElements.userRequestParams;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class TaskParamsData {
-    private int ownerId;
-    private int projectId;
+public class UserParamsData {
+    private String username;
+    private String password;
 }

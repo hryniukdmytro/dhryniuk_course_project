@@ -62,15 +62,12 @@ Feature: [UI] Project Task Test Cases
   Scenario: Verify that task can be copied from another project
     # Preconditions
     When Send project creation API request (name 'Project #1')
-    Given User should be logged in
-    Given User should have project opened
-    When Click on 'Configure this project' button
-    When Click on 'Permissions' button
-    # TO DO!!! Create precondition steps that will add permissions on projects to admin. Should be done for both created projects.
-
+    #When Assign project to the user
     When Send project creation API request (name 'Project #2')
+    #When Assign project to the user
     When Send task creation API request
     Then Task should be created
+    Given User should be logged in
     And User should have task opened
     # Steps
     When Click the 'Duplicate to project' button

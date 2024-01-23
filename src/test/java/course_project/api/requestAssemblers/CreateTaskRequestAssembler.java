@@ -1,6 +1,7 @@
 package course_project.api.requestAssemblers;
 
 import course_project.api.requestElements.genericRequestData.GenericData;
+import course_project.api.requestElements.taskRequestParams.TaskParamsData;
 import org.json.JSONObject;
 
 import static course_project.api.methods.TaskMethods.METHOD_CREATE_TASK;
@@ -13,15 +14,18 @@ public class CreateTaskRequestAssembler {
                 .builder()
                 .method(METHOD_CREATE_TASK)
                 .build();
-        JSONObject createTaskRequestBody = new JSONObject(genericData);
 
-        JSONObject createTaskParams = new JSONObject();
-        createTaskParams.put("title", TESTDATA_TASK_TITLE);
-        createTaskParams.put("project_id", projectId);
+        TaskParamsData taskParamsData = TaskParamsData
+                .builder()
+                .title(TESTDATA_TASK_TITLE)
+                .project_id(Integer.parseInt(projectId))
+                .build();
+
+        JSONObject createTaskRequestBody = new JSONObject(genericData);
+        JSONObject createTaskParams = new JSONObject(taskParamsData);
 
         createTaskRequestBody.put("params", createTaskParams);
 
         return createTaskRequestBody;
     }
-
 }

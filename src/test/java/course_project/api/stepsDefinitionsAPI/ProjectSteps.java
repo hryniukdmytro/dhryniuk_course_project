@@ -30,7 +30,6 @@ public class ProjectSteps {
         getProjectByIdResponse.then().statusCode(200);
 
         String actualProjectName = getProjectByIdResponse.jsonPath().getString("result.name");
-        getProjectByIdResponse.prettyPrint();
 
         Assert.assertEquals(actualProjectName, TESTDATA_PROJECT_NAME);}
 

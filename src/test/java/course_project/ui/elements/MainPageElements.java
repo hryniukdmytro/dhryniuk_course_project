@@ -48,6 +48,10 @@ public class MainPageElements {
         return $(".sidebar-icons ul:nth-child(4) > li:nth-child(3)");
     }
 
+    public SelenideElement duplicateToProjectButton() {
+        return $(".sidebar-icons ul:nth-child(4) > li:nth-child(10)");
+    }
+
     public SelenideElement saveSubTaskButton() {
         return $(".js-submit-buttons-rendered:nth-child(11) div.form-actions > button.btn.btn-blue:nth-child(1)");
     }
@@ -56,8 +60,8 @@ public class MainPageElements {
         return $("div.js-submit-buttons-rendered:nth-child(3) div.form-actions > button.btn.btn-blue:nth-child(1)");
     }
 
-    public SelenideElement duplicateToProjectButton() {
-        return $(".sidebar-icons ul:nth-child(4) > li:nth-child(10)");
+    public SelenideElement duplicateTaskToAnotherProjectSaveButton() {
+        return $(".js-submit-buttons-rendered:nth-child(17) div.form-actions > button.btn.btn-blue:nth-child(1)");
     }
 
     // <-------------- Icons ---------------->

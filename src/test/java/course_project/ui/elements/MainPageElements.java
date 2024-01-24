@@ -64,10 +64,18 @@ public class MainPageElements {
         return $(".js-submit-buttons-rendered:nth-child(17) div.form-actions > button.btn.btn-blue:nth-child(1)");
     }
 
-    // <-------------- Icons ---------------->
+    // <-------------- Dropdowns ---------------->
 
-    public SelenideElement projectGearIcon() {
+    public SelenideElement projectConfigDropdown() {
         return $("[class='fa fa-cog']");
+    }
+
+    public SelenideElement selectProjectToCopyToDropdown() {
+        return $(".js-select-dropdown-autocomplete-rendered:nth-child(4) > div.select-dropdown-input-container");
+    }
+
+    public SelenideElement selectProjectDropdownOptionByName(String projectNameToSelect) {
+        return $("[data-label='" + projectNameToSelect + "']");
     }
 
     // <------ TextFields & TextAreas ------->
@@ -77,21 +85,22 @@ public class MainPageElements {
     }
 
 
-    public SelenideElement commentModalTextArea() {
-        return $("div.js-text-editor-rendered:nth-child(2) div.text-editor:nth-child(2) div.text-editor-write-mode > textarea:nth-child(2)");
-    }
-
     public SelenideElement formTitleTextField() {
         return $("[id=form-title]");
     }
 
+    public SelenideElement commentModalTextArea() {
+        return $("div.js-text-editor-rendered:nth-child(2) div.text-editor:nth-child(2) div.text-editor-write-mode > textarea:nth-child(2)");
+    }
 
     // <-------------- Other ---------------->
     public SelenideElement mainPageBody() {
         return $("[id='main']");
     }
 
-    public SelenideElement projectTitle() {return $(".title-container h1:nth-child(1) > span.title");}
+    public SelenideElement projectTitle() {
+        return $(".title-container h1:nth-child(1) > span.title");
+    }
 
     public SelenideElement existingTaskTitle() {
         return $("[class='table-list-title ']");

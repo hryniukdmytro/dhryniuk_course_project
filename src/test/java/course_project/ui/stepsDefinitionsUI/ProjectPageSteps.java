@@ -26,8 +26,8 @@ public class ProjectPageSteps extends MainPageElements {
 
     @When("Click on gear icon to open project configurations dropdown")
     public void clickOnGearIcon() {
-        projectGearIcon().shouldBe(visible);
-        projectGearIcon().click();
+        projectConfigDropdown().shouldBe(visible);
+        projectConfigDropdown().click();
     }
 
     @When("Click 'Add a new task' dropdown option")
@@ -120,6 +120,12 @@ public class ProjectPageSteps extends MainPageElements {
         duplicateTaskToAnotherProjectSaveButton().click();
     }
 
+    @When("Click on project selection dropdown")
+    public void clickOnProjectSelectionDropdown() {
+        selectProjectToCopyToDropdown().shouldBe(visible);
+        selectProjectToCopyToDropdown().click();
+    }
+
     // <------ Fills ------>
 
     @When("Fill the project creation form")
@@ -144,6 +150,12 @@ public class ProjectPageSteps extends MainPageElements {
     public void fillTheSubTaskCreationForm() {
         formTitleTextField().shouldBe(visible).clear();
         formTitleTextField().sendKeys(TESTDATA_SUBTASK_TITLE);
+    }
+
+    @When("Select {string} as project to which task will be copied")
+    public void selectProjectToCopyTo(String givenProjectName) {
+        selectProjectDropdownOptionByName(givenProjectName).shouldBe(visible);
+        selectProjectDropdownOptionByName(givenProjectName).click();
     }
 
     // <----- Asserts & Checks ----->

@@ -62,17 +62,21 @@ Feature: [UI] Project Task Test Cases
   Scenario: Verify that task can be copied from another project
     # Preconditions
     When Send project creation API request (name 'Project #1')
-    #When Assign project to the user
-    When Send project creation API request (name 'Project #2')
-    #When Assign project to the user
-    When Send task creation API request
+    And Set user as project member via API
+    And Send project creation API request (name 'Project #2')
+    And Set user as project member via API
+    And Send project creation API request (name 'Project #3')
+    And Set user as project member via API
+    And Send task creation API request
     Then Task should be created
     Given User should be logged in
     And User should have task opened
     # Steps
     When Click the 'Duplicate to project' button
-    When Click 'Save' button to copy the task
-    When Click the link to copied task
+    And Click on project selection dropdown
+    And Select 'Project #1' as project to which task will be copied
+    And Click 'Save' button to copy the task
+    And Click the link to copied task
     # Final Check
     Then Check that task is opened in 'Project #1'
 

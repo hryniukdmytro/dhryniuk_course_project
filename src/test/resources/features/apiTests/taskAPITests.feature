@@ -1,4 +1,4 @@
-Feature: [API] Task Creation & Task Removing Test Cases
+Feature: [API] Project Task Test Cases
 
   Scenario: Verify that task can be created and removed via API
     # Preconditions

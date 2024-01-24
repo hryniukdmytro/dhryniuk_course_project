@@ -6,6 +6,7 @@ import io.restassured.response.Response;
 import org.testng.Assert;
 
 import static course_project.api.queries.QueryFormats.*;
+import static course_project.api.requestAssemblers.AddProjectMemberRequestAssembler.assembleAddProjectMemberRequest;
 import static course_project.api.requestAssemblers.CreateProjectRequestAssembler.assembleCreateProjectRequest;
 import static course_project.api.requestAssemblers.CreateProjectRequestWithSetNameAssembler.assembleCreateProjectWithSetNameRequest;
 import static course_project.api.requestAssemblers.GetProjectByIdRequestAssembler.assembleGetProjectByIdRequest;
@@ -57,5 +58,12 @@ public class ProjectSteps {
                 assembleCreateProjectWithSetNameRequest(projectName).toString());
         createProjectWithSetNameResponse.then().statusCode(200);
         newProjectId = createProjectWithSetNameResponse.jsonPath().getString("result");
+    }
+
+    @When("Set user as project member via API")
+    public void setUserAsProjectMember() {
+        Response addProjectMemberResponse = postRequest(API_USERNAME, API_TOKEN,
+                assembleAddProjectMemberRequest(newProjectId).toString());
+        addProjectMemberResponse.then().statusCode(200);
     }
 }

@@ -15,13 +15,13 @@ public class CreateProjectRequestWithSetNameAssembler {
                 .method(METHOD_CREATE_PROJECT)
                 .build();
 
-        ProjectParamsData projectParamsData = ProjectParamsData
+        ProjectParamsData projectParams = ProjectParamsData
                 .builder()
                 .name(desiredProjectName)
                 .build();
 
         JSONObject createProjectRequestBody = new JSONObject(genericData);
-        JSONObject createProjectParams = new JSONObject(projectParamsData);
+        JSONObject createProjectParams = new JSONObject(projectParams);
 
         createProjectRequestBody.put("params", createProjectParams);
 

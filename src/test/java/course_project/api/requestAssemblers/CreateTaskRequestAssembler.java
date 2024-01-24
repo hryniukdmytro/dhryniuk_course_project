@@ -15,14 +15,14 @@ public class CreateTaskRequestAssembler {
                 .method(METHOD_CREATE_TASK)
                 .build();
 
-        TaskParamsData taskParamsData = TaskParamsData
+        TaskParamsData taskParams = TaskParamsData
                 .builder()
                 .title(TESTDATA_TASK_TITLE)
                 .project_id(Integer.parseInt(projectId))
                 .build();
 
         JSONObject createTaskRequestBody = new JSONObject(genericData);
-        JSONObject createTaskParams = new JSONObject(taskParamsData);
+        JSONObject createTaskParams = new JSONObject(taskParams);
 
         createTaskRequestBody.put("params", createTaskParams);
 

@@ -16,14 +16,14 @@ public class CreateUserRequestAssembler {
                 .method(METHOD_CREATE_USER)
                 .build();
 
-        UserParamsData userParamsData = UserParamsData
+        UserParamsData userParams = UserParamsData
                 .builder()
                 .username(TESTDATA_NEW_USER_NAME)
                 .password(TESTDATA_NEW_USER_PASSWORD)
                 .build();
 
         JSONObject createUserRequestBody = new JSONObject(genericData);
-        JSONObject createUserParams = new JSONObject(userParamsData);
+        JSONObject createUserParams = new JSONObject(userParams);
 
         createUserRequestBody.put("params", createUserParams);
 

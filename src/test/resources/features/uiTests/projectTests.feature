@@ -10,6 +10,7 @@ Feature: [UI] Project Test Сases
     # Final Check
     Then New project should be opened and displayed
 
+
   Scenario: Verify that project can be closed
     # Preconditions
     When Send project creation API request

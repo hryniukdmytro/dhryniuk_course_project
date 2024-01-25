@@ -1,13 +1,17 @@
 package course_project.ui.stepsDefinitionsUI;
 
+import com.codeborne.selenide.Condition;
 import course_project.ui.elements.MainPageElements;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.qameta.allure.Flaky;
 import org.testng.Assert;
 
+import static com.codeborne.selenide.Selenide.*;
 import static course_project.utils.EnvPropertiesSetup.*;
 
 import static com.codeborne.selenide.Condition.*;
+
 public class ProjectPageSteps extends MainPageElements {
 
     // <----- Clicks ------>
@@ -126,6 +130,24 @@ public class ProjectPageSteps extends MainPageElements {
         selectProjectToCopyToDropdown().click();
     }
 
+
+    // <-- Drag-n-Drops --->
+    @When("Move task to {string} column")
+    public void dragNDropTaskToColumn(String columnName) {
+        taskOnBoard().shouldBe(visible);
+        Integer columnId = COLUMN_ID_MAP.get(columnName);
+
+            actions()
+                    .clickAndHold(taskOnBoard())
+                    .moveToElement(taskBoardColumn(columnId))
+                    .release()
+                    .perform();
+            sleep(15);
+
+            taskBoardColumn(columnId).shouldHave(Condition.text(TESTDATA_TASK_TITLE));
+    }
+
+
     // <------ Fills ------>
 
     @When("Fill the project creation form")
@@ -177,7 +199,7 @@ public class ProjectPageSteps extends MainPageElements {
         addedComment().shouldBe(visible);
         Assert.assertEquals(addedComment().getText(), TESTDATA_COMMENT_TEXT);
     }
-
+    @Flaky
     @Then("Check the that project status is {string}")
     public void checkProjectState(String expectedProjectState) {
         summaryProjectState().shouldBe(visible);

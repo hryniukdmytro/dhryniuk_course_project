@@ -81,10 +81,21 @@ Feature: [UI] Project Task Test Cases
     Then Check that task is opened in 'Project #1'
 
 
+  Scenario: Verify that task can be moved within phases
+    # Preconditions
+    When Send project creation API request
+    Then Project should be created
+    When Send task creation API request
+    Then Task should be created
+    Given User should be logged in
+    And User should have project opened
+    # Steps & Checks
+    When Move task to 'Ready' column
+    When Move task to 'Work in progress' column
+    When Move task to 'Done' column
+    When Move task to 'Backlog' column
 
 
-  #Scenario: Verify that task can be moved within phases
-
-
+    
   Scenario: Clean up
     Given Remove all projects

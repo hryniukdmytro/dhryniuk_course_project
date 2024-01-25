@@ -8,14 +8,13 @@ import org.testng.annotations.DataProvider;
         plugin = {
                 "pretty",
                 "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",
-                "rerun:target/failedScenarios"
         },
-        features = "src/test/resources/features/uiTests",
+        features = "@target/failedScenarios",
         glue = {"course_project/ui/stepsDefinitionsUI",
                 "course_project/api/stepsDefinitionsAPI"}
 )
+public class RerunTestRunner extends AbstractTestNGCucumberTests {
 
-public class UITestRunner extends AbstractTestNGCucumberTests {
     @Override
     @DataProvider()
     public Object[][] scenarios() {

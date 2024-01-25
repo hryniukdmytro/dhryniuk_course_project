@@ -1,7 +1,7 @@
 package course_project.ui.elements;
 
-import com.codeborne.selenide.SelenideElement;
 
+import com.codeborne.selenide.SelenideElement;
 import static com.codeborne.selenide.Selenide.$;
 
 public class MainPageElements {
@@ -125,4 +125,12 @@ public class MainPageElements {
     public SelenideElement linkToDuplicatedTask() {
         return $(".table-scrolling tbody:nth-child(1) tr:nth-child(2) td:nth-child(1) > a:nth-child(2)");
     }
+
+    public SelenideElement taskOnBoard() {
+        return $(".ui-sortable-handle");
+    }
+
+   public SelenideElement taskBoardColumn(int boardColumnId) {
+        return $("tbody tr:nth-child(2) td:nth-child(" + boardColumnId + ")");
+   }
 }

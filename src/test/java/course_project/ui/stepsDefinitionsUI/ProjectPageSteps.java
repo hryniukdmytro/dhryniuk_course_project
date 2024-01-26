@@ -1,26 +1,19 @@
 package course_project.ui.stepsDefinitionsUI;
 
 import com.codeborne.selenide.Condition;
-import course_project.ui.elements.MainPageElements;
+import course_project.ui.elements.ProjectPageElements;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.qameta.allure.Flaky;
 import org.testng.Assert;
 
 import static com.codeborne.selenide.Selenide.*;
-import static course_project.utils.EnvPropertiesSetup.*;
-
 import static com.codeborne.selenide.Condition.*;
+import static course_project.envPropertiesSetup.EnvTestDataSetup.*;
 
-public class ProjectPageSteps extends MainPageElements {
+public class ProjectPageSteps extends ProjectPageElements {
 
     // <----- Clicks ------>
-
-    @When("Click on the 'New project' button")
-    public void clickNewProjectButton() {
-        newProjectButton().shouldBe(visible);
-        newProjectButton().click();
-    }
 
     @When("Click the 'Save' button")
     public void saveNewProject() {
@@ -132,6 +125,7 @@ public class ProjectPageSteps extends MainPageElements {
 
 
     // <-- Drag-n-Drops --->
+
     @When("Move task to {string} column")
     public void dragNDropTaskToColumn(String columnName) {
         taskOnBoard().shouldBe(visible);

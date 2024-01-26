@@ -1,22 +1,15 @@
 package course_project.ui.stepsDefinitionsUI;
 
 import course_project.ui.elements.LoginPageElements;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
 
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.open;
-import static course_project.utils.EnvPropertiesSetup.TESTDATA_LOGIN;
-import static course_project.utils.EnvPropertiesSetup.TESTDATA_PASSWORD;
+import static course_project.envPropertiesSetup.EnvTestDataSetup.TESTDATA_LOGIN;
+import static course_project.envPropertiesSetup.EnvTestDataSetup.TESTDATA_PASSWORD;
 
 public class LoginPageSteps extends LoginPageElements {
-
-    @Given("Navigate to login page in browser")
-    public void openLoginPage() {
-        open("http://localhost");
-    }
 
     @When("Enter valid credentials")
     public void enterValidCredentials() {
@@ -28,10 +21,11 @@ public class LoginPageSteps extends LoginPageElements {
     }
 
     @When("Enter invalid username {} and password {}")
-    public void enterInvalidUsernameAndPassword(String username, String password) {
+    public void enterInvalidCredentials(String username, String password) {
         loginTextField().shouldBe(visible);
         passwordTextField().shouldBe(visible);
         loginButton().shouldBe(visible);
+
         loginTextField().sendKeys(username);
         passwordTextField().sendKeys(password);
     }
@@ -42,7 +36,7 @@ public class LoginPageSteps extends LoginPageElements {
     }
 
     @Then("Error message should be displayed after unsuccessful login")
-    public void mainPageShouldNotBeDisplayedAfterUnsuccessfulLogin() {
+    public void isErrorMessageDisplayedWhenLoginFails() {
         Assert.assertTrue(badCredsErrorMessage().isDisplayed());
     }
 }

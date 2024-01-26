@@ -11,4 +11,4 @@ Feature: [API] Project Task Test Cases
     Then Task should be removed
 
   Scenario: Clean Up
-    Given Remove all projects
+    Given All projects should be removed

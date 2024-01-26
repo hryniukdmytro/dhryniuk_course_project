@@ -1,5 +1,6 @@
 Feature: [UI] Project Test Сases
 
+  @Chrome
   Scenario: Verify that new project can be created
     # Preconditions
     Given User should be logged in
@@ -10,7 +11,7 @@ Feature: [UI] Project Test Сases
     # Final Check
     Then New project should be opened and displayed
 
-
+  @Chrome
   Scenario: Verify that project can be closed
     # Preconditions
     When Send project creation API request
@@ -27,5 +28,5 @@ Feature: [UI] Project Test Сases
 
 
   Scenario: Clean up
-    Given Remove all projects
+    Given All projects should be removed
 

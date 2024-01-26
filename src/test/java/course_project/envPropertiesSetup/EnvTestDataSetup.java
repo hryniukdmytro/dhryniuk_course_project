@@ -1,21 +1,12 @@
-package course_project.utils;
+package course_project.envPropertiesSetup;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
-import static java.util.Objects.isNull;
+import static course_project.envPropertiesSetup.GetPropertiesFromFile.*;
 
-public class EnvPropertiesSetup {
-    public static final String PATH_TO_RESOURCE = "src/test/resources/properties/";
-    public static final String ENV_PROPERTIES_FILE_NAME = "env.properties";
-    public static final String TESTDATA_PROPERTIES_FILE_NAME = "testData.properties";
-    public static String API_URL;
-    public static String BASE_URL;
-    public static String API_USERNAME;
-    public static String API_TOKEN;
-    public static String COOKIE_NAME;
-    public static String COOKIE_VALUE;
+public class EnvTestDataSetup {
+
     public static String TESTDATA_PROJECT_NAME;
     public static String TESTDATA_PROJECT_NAME_1;
     public static String TESTDATA_PROJECT_NAME_2;
@@ -31,18 +22,6 @@ public class EnvPropertiesSetup {
     public static int TESTDATA_BOARD_COLUMN_WIP;
     public static int TESTDATA_BOARD_COLUMN_DONE;
     public static final Map<String, Integer> COLUMN_ID_MAP = new HashMap<>();
-
-    public static void authConstantsSetup() {
-        API_URL = propertyValue(PATH_TO_RESOURCE, ENV_PROPERTIES_FILE_NAME, "apiURL");
-        BASE_URL = propertyValue(PATH_TO_RESOURCE, ENV_PROPERTIES_FILE_NAME, "baseURL");
-        API_USERNAME = propertyValue(PATH_TO_RESOURCE, ENV_PROPERTIES_FILE_NAME, "username");
-        API_TOKEN = propertyValue(PATH_TO_RESOURCE, ENV_PROPERTIES_FILE_NAME, "token");
-    }
-
-    public static void cookieConstantsSetup() {
-        COOKIE_NAME = propertyValue(PATH_TO_RESOURCE, ENV_PROPERTIES_FILE_NAME, "cookieName");
-        COOKIE_VALUE = propertyValue(PATH_TO_RESOURCE, ENV_PROPERTIES_FILE_NAME, "cookieValue");
-    }
 
     public static void testDataConstantsSetup() {
         // Test names, titles and comments
@@ -67,27 +46,11 @@ public class EnvPropertiesSetup {
 
     }
 
-    // Task columns ID map setup
+    // ID map columns setup
     public static void mapTaskColumnsIds(){
         COLUMN_ID_MAP.put("Backlog", TESTDATA_BOARD_COLUMN_BACKLOG);
         COLUMN_ID_MAP.put("Ready", TESTDATA_BOARD_COLUMN_READY);
         COLUMN_ID_MAP.put("Work in progress", TESTDATA_BOARD_COLUMN_WIP);
         COLUMN_ID_MAP.put("Done", TESTDATA_BOARD_COLUMN_DONE);
-    }
-
-
-    public static String propertyValue(String pathToFile, String propertyFileName, String propertyName) {
-        String systemProperty = System.getProperty(propertyName);
-        return !isNull(systemProperty) ? systemProperty : getPropertyValue(pathToFile, propertyFileName, propertyName);
-    }
-
-    private static String getPropertyValue(String pathToFile, String fileName, String propertyName) {
-        Properties prop = new Properties();
-        try (FileInputStream fis = new FileInputStream(pathToFile + fileName)) {
-            prop.load(fis);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        return prop.getProperty(propertyName);
     }
 }

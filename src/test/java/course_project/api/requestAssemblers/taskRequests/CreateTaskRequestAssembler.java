@@ -1,11 +1,11 @@
-package course_project.api.requestAssemblers;
+package course_project.api.requestAssemblers.taskRequests;
 
 import course_project.api.requestElements.genericRequestData.GenericData;
 import course_project.api.requestElements.taskRequestParams.TaskParamsData;
 import org.json.JSONObject;
 
 import static course_project.api.methods.TaskMethods.METHOD_CREATE_TASK;
-import static course_project.utils.EnvPropertiesSetup.TESTDATA_TASK_TITLE;
+import static course_project.envPropertiesSetup.EnvTestDataSetup.TESTDATA_TASK_TITLE;
 
 public class CreateTaskRequestAssembler {
 

@@ -1,4 +1,4 @@
-package course_project.api.requestAssemblers;
+package course_project.api.requestAssemblers.userRequests;
 
 import course_project.api.requestElements.genericRequestData.GenericData;
 import org.json.JSONObject;

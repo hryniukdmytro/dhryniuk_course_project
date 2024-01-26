@@ -1,4 +1,4 @@
-package course_project.api.requestAssemblers;
+package course_project.api.requestAssemblers.userRequests;
 
 
 import course_project.api.requestElements.genericRequestData.GenericData;
@@ -6,7 +6,8 @@ import course_project.api.requestElements.userRequestParams.UserParamsData;
 import org.json.JSONObject;
 
 import static course_project.api.methods.UserMethods.METHOD_CREATE_USER;
-import static course_project.utils.EnvPropertiesSetup.*;
+import static course_project.envPropertiesSetup.EnvTestDataSetup.TESTDATA_NEW_USER_PASSWORD;
+import static course_project.envPropertiesSetup.EnvTestDataSetup.TESTDATA_NEW_USER_NAME;
 
 public class CreateUserRequestAssembler {
 

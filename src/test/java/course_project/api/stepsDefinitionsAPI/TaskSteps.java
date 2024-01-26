@@ -6,11 +6,12 @@ import io.restassured.response.Response;
 import org.testng.Assert;
 
 import static course_project.api.queries.QueryFormats.*;
-import static course_project.api.requestAssemblers.CreateTaskRequestAssembler.assembleCreateTaskRequest;
-import static course_project.api.requestAssemblers.GetTaskRequestAssembler.assembleGetTaskRequest;
-import static course_project.api.requestAssemblers.RemoveTaskRequestAssembler.assembleRemoveTaskRequest;
+import static course_project.api.requestAssemblers.taskRequests.CreateTaskRequestAssembler.assembleCreateTaskRequest;
+import static course_project.api.requestAssemblers.taskRequests.GetTaskRequestAssembler.assembleGetTaskRequest;
+import static course_project.api.requestAssemblers.taskRequests.RemoveTaskRequestAssembler.assembleRemoveTaskRequest;
 import static course_project.api.stepsDefinitionsAPI.ProjectSteps.newProjectId;
-import static course_project.utils.EnvPropertiesSetup.*;
+import static course_project.envPropertiesSetup.EnvAuthAndCookiesSetup.*;
+import static course_project.envPropertiesSetup.EnvTestDataSetup.TESTDATA_TASK_TITLE;
 
 public class TaskSteps {
     public static String newTaskId;

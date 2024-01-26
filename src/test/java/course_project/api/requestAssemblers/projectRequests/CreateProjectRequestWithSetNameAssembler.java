@@ -1,15 +1,15 @@
-package course_project.api.requestAssemblers;
+package course_project.api.requestAssemblers.projectRequests;
 
 import course_project.api.requestElements.genericRequestData.GenericData;
 import course_project.api.requestElements.projectRequestParams.ProjectParamsData;
 import org.json.JSONObject;
 
 import static course_project.api.methods.ProjectMethods.METHOD_CREATE_PROJECT;
-import static course_project.utils.EnvPropertiesSetup.TESTDATA_PROJECT_NAME;
 
-public class CreateProjectRequestAssembler {
 
-    public static JSONObject assembleCreateProjectRequest() {
+public class CreateProjectRequestWithSetNameAssembler {
+
+    public static JSONObject assembleCreateProjectWithSetNameRequest(String desiredProjectName) {
         GenericData genericData = GenericData
                 .builder()
                 .method(METHOD_CREATE_PROJECT)
@@ -17,7 +17,7 @@ public class CreateProjectRequestAssembler {
 
         ProjectParamsData projectParams = ProjectParamsData
                 .builder()
-                .name(TESTDATA_PROJECT_NAME)
+                .name(desiredProjectName)
                 .build();
 
         JSONObject createProjectRequestBody = new JSONObject(genericData);

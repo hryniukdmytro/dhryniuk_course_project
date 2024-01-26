@@ -6,12 +6,13 @@ import io.restassured.response.Response;
 import org.testng.Assert;
 
 import static course_project.api.queries.QueryFormats.*;
-import static course_project.api.requestAssemblers.AddProjectMemberRequestAssembler.assembleAddProjectMemberRequest;
-import static course_project.api.requestAssemblers.CreateProjectRequestAssembler.assembleCreateProjectRequest;
-import static course_project.api.requestAssemblers.CreateProjectRequestWithSetNameAssembler.assembleCreateProjectWithSetNameRequest;
-import static course_project.api.requestAssemblers.GetProjectByIdRequestAssembler.assembleGetProjectByIdRequest;
-import static course_project.api.requestAssemblers.RemoveProjectRequestAssembler.assembleRemoveProjectRequest;
-import static course_project.utils.EnvPropertiesSetup.*;
+import static course_project.api.requestAssemblers.projectRequests.AddProjectMemberRequestAssembler.assembleAddProjectMemberRequest;
+import static course_project.api.requestAssemblers.projectRequests.CreateProjectRequestAssembler.assembleCreateProjectRequest;
+import static course_project.api.requestAssemblers.projectRequests.CreateProjectRequestWithSetNameAssembler.assembleCreateProjectWithSetNameRequest;
+import static course_project.api.requestAssemblers.projectRequests.GetProjectByIdRequestAssembler.assembleGetProjectByIdRequest;
+import static course_project.api.requestAssemblers.projectRequests.RemoveProjectRequestAssembler.assembleRemoveProjectRequest;
+import static course_project.envPropertiesSetup.EnvAuthAndCookiesSetup.*;
+import static course_project.envPropertiesSetup.EnvTestDataSetup.TESTDATA_PROJECT_NAME;
 
 public class ProjectSteps {
     public static String newProjectId;

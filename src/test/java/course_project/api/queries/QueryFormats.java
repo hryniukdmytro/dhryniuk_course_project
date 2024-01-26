@@ -3,7 +3,7 @@ package course_project.api.queries;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
-import static course_project.utils.EnvPropertiesSetup.API_URL;
+import static course_project.envPropertiesSetup.EnvAuthAndCookiesSetup.API_URL;
 
 public class QueryFormats {
 

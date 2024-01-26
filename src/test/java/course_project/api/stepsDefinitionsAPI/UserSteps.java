@@ -6,10 +6,11 @@ import io.restassured.response.Response;
 import org.testng.Assert;
 
 import static course_project.api.queries.QueryFormats.*;
-import static course_project.api.requestAssemblers.CreateUserRequestAssembler.assembleCreateUserRequest;
-import static course_project.api.requestAssemblers.GetUserRequestAssembler.assembleGetUserRequest;
-import static course_project.api.requestAssemblers.RemoveUserRequestAssembler.assembleRemoveUserRequest;
-import static course_project.utils.EnvPropertiesSetup.*;
+import static course_project.api.requestAssemblers.userRequests.CreateUserRequestAssembler.assembleCreateUserRequest;
+import static course_project.api.requestAssemblers.userRequests.GetUserRequestAssembler.assembleGetUserRequest;
+import static course_project.api.requestAssemblers.userRequests.RemoveUserRequestAssembler.assembleRemoveUserRequest;
+import static course_project.envPropertiesSetup.EnvAuthAndCookiesSetup.*;
+import static course_project.envPropertiesSetup.EnvTestDataSetup.TESTDATA_NEW_USER_NAME;
 
 public class UserSteps {
 

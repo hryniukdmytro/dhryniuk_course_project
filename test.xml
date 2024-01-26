@@ -1,13 +1,26 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Cucumber Tests" parallel="methods">
+<suite name="Cucumber Tests" parallel="classes" thread-count="3">
     <test name="API Tests">
         <classes>
-            <class name="course_project.runners.APITestRunner"/>
+            <class name="course_project.runners.uiRunners.apiTestRunner.APITestRunner"/>
         </classes>
     </test>
-    <test name="UI Tests">
+    <test name="[Chrome] UI Tests">
         <classes>
-            <class name="course_project.runners.UITestRunner"/>
+            <class name="course_project.runners.uiRunners.chrome.UITestRunnerChrome"/>
+            <class name="course_project.runners.uiRunners.chrome.RerunTestRunnerChrome"/>
+        </classes>
+    </test>
+    <test name="[Chrome Headless] UI Tests">
+        <classes>
+            <class name="course_project.runners.uiRunners.chromeHeadless.UITestRunnerChromeHeadless"/>
+            <class name="course_project.runners.uiRunners.chromeHeadless.RerunTestRunnerChromeHeadless"/>
+        </classes>
+    </test>
+    <test name="[Firefox] UI Tests">
+        <classes>
+            <class name="course_project.runners.uiRunners.firefox.UITestRunnerFirefox"/>
+            <class name="course_project.runners.uiRunners.firefox.RerunTestRunnerFirefox"/>
         </classes>
     </test>
 </suite>

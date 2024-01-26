@@ -16,14 +16,11 @@ import org.testng.annotations.DataProvider;
 )
 public class UITestRunnerFirefox extends AbstractTestNGCucumberTests {
 
-    static {
-        Configuration.browser = "firefox";
-        Configuration.headless = false;
-    }
-
     @Override
     @DataProvider
     public Object[][] scenarios() {
+        Configuration.browser = "firefox";
+        Configuration.headless = false;
         return super.scenarios();
     }
 }

@@ -16,13 +16,11 @@ import org.testng.annotations.DataProvider;
 )
 public class UITestRunnerChromeHeadless extends AbstractTestNGCucumberTests {
 
-    static {
-        Configuration.browser = "chrome";
-        Configuration.headless = true;
-    }
     @Override
     @DataProvider
     public Object[][] scenarios() {
+        Configuration.browser = "chrome";
+        Configuration.headless = true;
         return super.scenarios();
     }
 }

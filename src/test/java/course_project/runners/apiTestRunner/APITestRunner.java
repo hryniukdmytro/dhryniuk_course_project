@@ -1,4 +1,4 @@
-package course_project.runners.uiRunners.apiTestRunner;
+package course_project.runners.apiTestRunner;
 
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;

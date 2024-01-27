@@ -1,4 +1,4 @@
-package course_project.runners.uiRunners.chrome;
+package course_project.runners.uiRunners.allFeatures;
 
 import com.codeborne.selenide.Configuration;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
@@ -14,7 +14,7 @@ import org.testng.annotations.DataProvider;
         features = "src/test/resources/features/uiTests",
         glue = {"course_project.ui.stepsDefinitionsUI", "course_project.api.stepsDefinitionsAPI"}
 )
-public class UITestRunnerChrome extends AbstractTestNGCucumberTests {
+public class TestRunnerChrome extends AbstractTestNGCucumberTests {
 
     @Override
     @DataProvider

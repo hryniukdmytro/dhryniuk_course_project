@@ -1,0 +1,44 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Project Tests">
+    <test name="Project API Tests">
+        <classes>
+            <class name="course_project.runners.apiRunners.projectFeatures.ProjectAPITestRunner"/>
+        </classes>
+    </test>
+    <test name="[Chrome] Project UI Tests">
+        <parameter name="Browser" value="Chrome"/>
+        <classes>
+            <class name="course_project.runners.uiRunners.projectFeatures.ProjectTestRunnerChrome"/>
+        </classes>
+    </test>
+    <test name="[Chrome Headless] Project UI Tests">
+        <parameter name="Browser" value="ChromeHeadless"/>
+        <classes>
+            <class name="course_project.runners.uiRunners.projectFeatures.ProjectTestRunnerChromeHeadless"/>
+        </classes>
+    </test>
+    <test name="[Firefox] Project UI Tests">
+        <parameter name="Browser" value="Firefox"/>
+        <classes>
+            <class name="course_project.runners.uiRunners.projectFeatures.ProjectTestRunnerFirefox"/>
+        </classes>
+    </test>
+    <test name="[Chrome] Project Rerun failed UI Tests">
+        <parameter name="Browser" value="Chrome"/>
+        <classes>
+            <class name="course_project.runners.uiRunners.retryFailed.RerunTestRunnerChrome"/>
+        </classes>
+    </test>
+    <test name="[Chrome Headless] Project Rerun failed UI Tests">
+        <parameter name="Browser" value="ChromeHeadless"/>
+        <classes>
+            <class name="course_project.runners.uiRunners.retryFailed.RerunTestRunnerChromeHeadless"/>
+        </classes>
+    </test>
+    <test name="[Firefox] Project Rerun failed UI Tests">
+        <parameter name="Browser" value="Firefox"/>
+        <classes>
+            <class name="course_project.runners.uiRunners.retryFailed.RerunTestRunnerFirefox"/>
+        </classes>
+    </test>
+</suite>

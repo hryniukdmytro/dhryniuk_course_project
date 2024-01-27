@@ -1,4 +1,4 @@
-package course_project.runners.uiRunners.firefox;
+package course_project.runners.uiRunners.retryFailed;
 
 import com.codeborne.selenide.Configuration;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
@@ -12,25 +12,25 @@ import java.io.File;
                 "pretty",
                 "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",
         },
-        features = "@target/failed-scenarios/failedScenariosFirefox",
+        features = "@target/failed-scenarios/failedScenariosChrome",
         glue = {"course_project.ui.stepsDefinitionsUI", "course_project.api.stepsDefinitionsAPI"}
 )
-public class RerunTestRunnerFirefox extends AbstractTestNGCucumberTests {
+public class RerunTestRunnerChrome extends AbstractTestNGCucumberTests {
 
     @Override
     @DataProvider
     public Object[][] scenarios() {
-        Configuration.browser = "firefox";
+        Configuration.browser = "chrome";
         Configuration.headless = false;
 
-        String filePath = "target/failed-scenarios/failedScenariosFirefox";
+        String filePath = "target/failed-scenarios/failedScenariosChrome";
         File file = new File(filePath);
 
         if (file.exists() && file.length() > 0) {
-            System.out.println("Failed scenarios found for Firefox. Running tests again.");
+            System.out.println("Failed scenarios found for Chrome. Running tests again.");
             return super.scenarios();
         } else {
-            System.out.println("No failed scenarios for Firefox");
+            System.out.println("No failed scenarios for Chrome");
             return new Object[0][0];
         }
     }

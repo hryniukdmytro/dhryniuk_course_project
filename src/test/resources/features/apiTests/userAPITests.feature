@@ -1,3 +1,4 @@
+@User
 Feature: [API] User Creation & User Removing Test Cases
 
   Scenario: Verify that user can be created & removed via API

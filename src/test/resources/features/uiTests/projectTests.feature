@@ -1,3 +1,4 @@
+@Project
 Feature: [UI] Project Test Сases
 
   Scenario: Verify that new project can be created

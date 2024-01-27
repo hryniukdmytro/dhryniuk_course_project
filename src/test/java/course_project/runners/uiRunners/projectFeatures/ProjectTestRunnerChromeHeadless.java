@@ -1,4 +1,4 @@
-package course_project.runners.uiRunners.chromeHeadless;
+package course_project.runners.uiRunners.projectFeatures;
 
 import com.codeborne.selenide.Configuration;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
@@ -11,10 +11,10 @@ import org.testng.annotations.DataProvider;
                 "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",
                 "rerun:target/failed-scenarios/failedScenariosChromeHeadless"
         },
-        features = "src/test/resources/features/uiTests",
+        features = "src/test/resources/features/uiTests/projectTests.feature",
         glue = {"course_project.ui.stepsDefinitionsUI", "course_project.api.stepsDefinitionsAPI"}
 )
-public class UITestRunnerChromeHeadless extends AbstractTestNGCucumberTests {
+public class ProjectTestRunnerChromeHeadless extends AbstractTestNGCucumberTests {
 
     @Override
     @DataProvider

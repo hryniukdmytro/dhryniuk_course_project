@@ -13,8 +13,7 @@ import java.io.File;
                 "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",
         },
         features = "@target/failed-scenarios/failedScenariosChrome",
-        glue = {"course_project/ui/stepsDefinitionsUI",
-                "course_project/api/stepsDefinitionsAPI"}
+        glue = {"course_project.ui.stepsDefinitionsUI", "course_project.api.stepsDefinitionsAPI"}
 )
 public class RerunTestRunnerChrome extends AbstractTestNGCucumberTests {
 

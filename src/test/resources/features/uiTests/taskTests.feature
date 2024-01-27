@@ -1,6 +1,5 @@
 Feature: [UI] Project Task Test Cases
 
-  @Chrome
   Scenario: Verify that new task can be created
     # Preconditions
     When Send project creation API request
@@ -17,7 +16,6 @@ Feature: [UI] Project Task Test Cases
     # Final Check
     Then Check that task status is 'open'
 
-  @Chrome
   Scenario: Verify that new task can be closed
     # Preconditions
     When Send project creation API request
@@ -32,7 +30,6 @@ Feature: [UI] Project Task Test Cases
     # Final Check
     Then Check that task status is 'closed'
 
-  @Chrome
   Scenario: Verify that comment can be added to the task
     # Preconditions
     When Send project creation API request
@@ -48,7 +45,6 @@ Feature: [UI] Project Task Test Cases
     # Final Check
     Then Check that comment is displayed
 
-  @Chrome
   Scenario: Verify that subtask can be created
     # Preconditions
     When Send project creation API request
@@ -63,7 +59,6 @@ Feature: [UI] Project Task Test Cases
     And Click 'Save' button to save new sub-task
     Then Check that new sub-task in created
 
-  @Chrome
   Scenario: Verify that task can be copied from another project
     # Preconditions
     When Send project creation API request (name 'Project #1')
@@ -85,7 +80,6 @@ Feature: [UI] Project Task Test Cases
     # Final Check
     Then Check that task is opened in 'Project #1'
 
-  @Chrome
   Scenario: Verify that task can be moved within phases
     # Preconditions
     When Send project creation API request
@@ -100,6 +94,5 @@ Feature: [UI] Project Task Test Cases
     When Move task to 'Done' column
     When Move task to 'Backlog' column
 
-    
   Scenario: Clean up
     Given All projects should be removed

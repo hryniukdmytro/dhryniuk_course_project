@@ -21,6 +21,7 @@ public class UITestRunnerChrome extends AbstractTestNGCucumberTests {
     public Object[][] scenarios() {
         Configuration.browser = "chrome";
         Configuration.headless = false;
+
         return super.scenarios();
     }
 }

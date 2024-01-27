@@ -6,37 +6,31 @@
         </classes>
     </test>
     <test name="[Chrome] Task UI Tests">
-        <parameter name="Browser" value="Chrome"/>
         <classes>
             <class name="course_project.runners.uiRunners.taskFeatures.TaskTestRunnerChrome"/>
         </classes>
     </test>
     <test name="[Chrome Headless] Task UI Tests">
-        <parameter name="Browser" value="ChromeHeadless"/>
         <classes>
             <class name="course_project.runners.uiRunners.taskFeatures.TaskTestRunnerChromeHeadless"/>
         </classes>
     </test>
     <test name="[Firefox] Task UI Tests">
-        <parameter name="Browser" value="Firefox"/>
         <classes>
             <class name="course_project.runners.uiRunners.taskFeatures.TaskTestRunnerFirefox"/>
         </classes>
     </test>
     <test name="[Chrome] Task Rerun failed UI Tests">
-        <parameter name="Browser" value="Chrome"/>
         <classes>
             <class name="course_project.runners.uiRunners.retryFailed.RerunTestRunnerChrome"/>
         </classes>
     </test>
     <test name="[Chrome Headless] Task Rerun failed UI Tests">
-        <parameter name="Browser" value="ChromeHeadless"/>
         <classes>
             <class name="course_project.runners.uiRunners.retryFailed.RerunTestRunnerChromeHeadless"/>
         </classes>
     </test>
     <test name="[Firefox] Task Rerun failed UI Tests">
-        <parameter name="Browser" value="Firefox"/>
         <classes>
             <class name="course_project.runners.uiRunners.retryFailed.RerunTestRunnerFirefox"/>
         </classes>

@@ -6,37 +6,31 @@
         </classes>
     </test>
     <test name="[Chrome] UI Tests">
-        <parameter name="Browser" value="Chrome"/>
         <classes>
             <class name="course_project.runners.uiRunners.allFeatures.TestRunnerChrome"/>
         </classes>
     </test>
     <test name="[Chrome Headless] UI Tests">
-        <parameter name="Browser" value="ChromeHeadless"/>
         <classes>
             <class name="course_project.runners.uiRunners.allFeatures.TestRunnerChromeHeadless"/>
         </classes>
     </test>
     <test name="[Firefox] UI Tests">
-        <parameter name="Browser" value="Firefox"/>
         <classes>
             <class name="course_project.runners.uiRunners.allFeatures.TestRunnerFirefox"/>
         </classes>
     </test>
     <test name="[Chrome] Rerun failed UI Tests">
-        <parameter name="Browser" value="Chrome"/>
         <classes>
             <class name="course_project.runners.uiRunners.retryFailed.RerunTestRunnerChrome"/>
         </classes>
     </test>
     <test name="[Chrome Headless] Rerun failed UI Tests">
-        <parameter name="Browser" value="ChromeHeadless"/>
         <classes>
             <class name="course_project.runners.uiRunners.retryFailed.RerunTestRunnerChromeHeadless"/>
         </classes>
     </test>
     <test name="[Firefox] Rerun failed UI Tests">
-        <parameter name="Browser" value="Firefox"/>
         <classes>
             <class name="course_project.runners.uiRunners.retryFailed.RerunTestRunnerFirefox"/>
         </classes>

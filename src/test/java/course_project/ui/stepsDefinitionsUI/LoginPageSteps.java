@@ -16,6 +16,7 @@ public class LoginPageSteps extends LoginPageElements {
         loginTextField().shouldBe(visible);
         passwordTextField().shouldBe(visible);
         loginButton().shouldBe(visible);
+
         loginTextField().sendKeys(TESTDATA_LOGIN);
         passwordTextField().sendKeys(TESTDATA_PASSWORD);
     }

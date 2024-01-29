@@ -1,4 +1,3 @@
-@Task
 Feature: [UI] Project Task Test Cases
 
   Scenario: Verify that new task can be created

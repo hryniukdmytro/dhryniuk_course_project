@@ -16,6 +16,7 @@
         <selenide.version>7.0.4</selenide.version>
         <testng.version>7.8.0</testng.version>
         <allure.version>2.24.0</allure.version>
+        <suite>allTests</suite>
     </properties>
 
     <!-- Allure-bom -->
@@ -147,10 +148,7 @@
                 <version>3.0.0-M5</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>testsXMLFiles/allTests.xml</suiteXmlFile>
-                        <suiteXmlFile>testsXMLFiles/projectTests.xml</suiteXmlFile>
-                        <suiteXmlFile>testsXMLFiles/taskTests.xml</suiteXmlFile>
-                        <suiteXmlFile>testsXMLFiles/userTests.xml</suiteXmlFile>
+                        <suiteXmlFile>testsXMLFiles/${suite}.xml</suiteXmlFile>
                     </suiteXmlFiles>
                     <properties>
                         <property>

@@ -1,4 +1,3 @@
-@User
 Feature: [UI] Login Test Cases
 
   Scenario: Verify that login with valid credentials is successful

@@ -1,4 +1,3 @@
-@Project
 Feature: [UI] Project Test Сases
 
   Scenario: Verify that project can be created & removed via API

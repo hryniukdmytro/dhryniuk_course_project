@@ -7,12 +7,6 @@ import static course_project.envPropertiesSetup.GetPropertiesFromFile.*;
 
 public class EnvTestDataSetup {
 
-    public static String TESTDATA_PROJECT_NAME;
-    public static String TESTDATA_PROJECT_NAME_1;
-    public static String TESTDATA_PROJECT_NAME_2;
-    public static String TESTDATA_TASK_TITLE;
-    public static String TESTDATA_SUBTASK_TITLE;
-    public static String TESTDATA_COMMENT_TEXT;
     public static String TESTDATA_LOGIN;
     public static String TESTDATA_PASSWORD;
     public static String TESTDATA_NEW_USER_NAME;
@@ -24,13 +18,6 @@ public class EnvTestDataSetup {
     public static final Map<String, Integer> COLUMN_ID_MAP = new HashMap<>();
 
     public static void testDataConstantsSetup() {
-        // Test names, titles and comments
-        TESTDATA_PROJECT_NAME = propertyValue(PATH_TO_RESOURCE, TESTDATA_PROPERTIES_FILE_NAME, "projectTitle");
-        TESTDATA_PROJECT_NAME_1 = propertyValue(PATH_TO_RESOURCE, TESTDATA_PROPERTIES_FILE_NAME, "projectTitle1");
-        TESTDATA_PROJECT_NAME_2 = propertyValue(PATH_TO_RESOURCE, TESTDATA_PROPERTIES_FILE_NAME, "projectTitle2");
-        TESTDATA_TASK_TITLE = propertyValue(PATH_TO_RESOURCE, TESTDATA_PROPERTIES_FILE_NAME, "taskTitle");
-        TESTDATA_SUBTASK_TITLE = propertyValue(PATH_TO_RESOURCE, TESTDATA_PROPERTIES_FILE_NAME, "subTaskTitle");
-        TESTDATA_COMMENT_TEXT = propertyValue(PATH_TO_RESOURCE, TESTDATA_PROPERTIES_FILE_NAME, "comment");
 
         // Test user data
         TESTDATA_LOGIN = propertyValue(PATH_TO_RESOURCE, TESTDATA_PROPERTIES_FILE_NAME, "login");

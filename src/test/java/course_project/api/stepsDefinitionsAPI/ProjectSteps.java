@@ -7,35 +7,25 @@ import org.testng.Assert;
 
 import static course_project.api.queries.QueryFormats.*;
 import static course_project.api.requestAssemblers.projectRequests.AddProjectMemberRequestAssembler.assembleAddProjectMemberRequest;
-import static course_project.api.requestAssemblers.projectRequests.CreateProjectRequestAssembler.assembleCreateProjectRequest;
 import static course_project.api.requestAssemblers.projectRequests.CreateProjectRequestWithSetNameAssembler.assembleCreateProjectWithSetNameRequest;
 import static course_project.api.requestAssemblers.projectRequests.GetProjectByIdRequestAssembler.assembleGetProjectByIdRequest;
 import static course_project.api.requestAssemblers.projectRequests.RemoveProjectRequestAssembler.assembleRemoveProjectRequest;
 import static course_project.envPropertiesSetup.EnvAuthAndCookiesSetup.*;
-import static course_project.envPropertiesSetup.EnvTestDataSetup.TESTDATA_PROJECT_NAME;
 
 public class ProjectSteps {
     public static String newProjectId;
 
-    @When("Send project creation API request")
-    public void createProjectViaAPI() {
-        Response projectCreationResponse = postRequest(API_USERNAME, API_TOKEN,
-                assembleCreateProjectRequest().toString());
-        projectCreationResponse.then().statusCode(200);
-        newProjectId = projectCreationResponse.jsonPath().getString("result");
-    }
-
-    @Then("Project should be created")
-    public void checkWhetherProjectIsCreated() {
+    @Then("Project with name {string} should be created")
+    public void checkWhetherProjectIsCreated(String projectName) {
         Response getProjectByIdResponse = getRequest(API_USERNAME, API_TOKEN,
                 assembleGetProjectByIdRequest(newProjectId).toString());
         getProjectByIdResponse.then().statusCode(200);
 
         String actualProjectName = getProjectByIdResponse.jsonPath().getString("result.name");
 
-        Assert.assertEquals(actualProjectName, TESTDATA_PROJECT_NAME);}
+        Assert.assertEquals(actualProjectName, projectName);}
 
-    @When("Send project remove API request")
+    @When("API request to remove last created project has been sent")
     public void removeProjectViaAPI() {
         Response removeProjectResponse = deleteRequest(API_USERNAME, API_TOKEN,
                 assembleRemoveProjectRequest(newProjectId).toString());
@@ -53,7 +43,7 @@ public class ProjectSteps {
         Assert.assertNull(actualProjectState);
     }
 
-    @When("Send project creation API request \\(name {string})")
+    @When("API request to create a project with name {string} was sent")
     public void createProjectWithSetNameViaAPI(String projectName) {
         Response createProjectWithSetNameResponse = postRequest(API_USERNAME, API_TOKEN,
                 assembleCreateProjectWithSetNameRequest(projectName).toString());
@@ -61,7 +51,7 @@ public class ProjectSteps {
         newProjectId = createProjectWithSetNameResponse.jsonPath().getString("result");
     }
 
-    @When("Set user as project member via API")
+    @When("User was set as member of last created project via API")
     public void setUserAsProjectMember() {
         Response addProjectMemberResponse = postRequest(API_USERNAME, API_TOKEN,
                 assembleAddProjectMemberRequest(newProjectId).toString());

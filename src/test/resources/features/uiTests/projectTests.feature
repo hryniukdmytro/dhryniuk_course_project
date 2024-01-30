@@ -4,25 +4,25 @@ Feature: [UI] Project Test Сases
     # Preconditions
     Given User should be logged in
     # Steps
-    When Click on the 'New project' button
-    And Fill the project creation form
-    And Click the 'Save' button
+    When New_Project_Button on Main_Page has been clicked
+    And Text "Test Project" was entered into Project_Name_Modal_TextField on Project_Page
+    And Modal_Save_Button on Project_Page has been clicked
     # Final Check
-    Then New project should be opened and displayed
+    Then Text "Test Project" should be displayed in Project_Title on Project_Page
 
   Scenario: Verify that project can be closed
     # Preconditions
-    When Send project creation API request
-    Then Project should be created
+    When API request to create a project with name "Project Closure Test" was sent
+    Then Project with name "Project Closure Test" should be created
     Given User should be logged in
     And User should have project opened
     # Steps
-    When Click on gear icon to open project configurations dropdown
-    And Click on 'Configure this project' button
-    Then Check the that project status is 'open'
-    When Click on 'Close this project' button
-    And Click 'Yes' in appeared modal window
-    Then Check the that project status is 'closed'
+    When Project_Configurations_Dropdown on Project_Page has been clicked
+    And Configure_Project_Button on Project_Page has been clicked
+    Then Trimmed text of the Project_State on Project_Page should be "open"
+    When Close_Project_Button on Project_Page has been clicked
+    And Yes_Modal_Button on Project_Page has been clicked
+    Then Trimmed text of the Project_State on Project_Page should be "closed"
 
 
   Scenario: Clean up

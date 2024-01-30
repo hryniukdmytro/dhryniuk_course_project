@@ -5,11 +5,10 @@ import course_project.api.requestElements.taskRequestParams.TaskParamsData;
 import org.json.JSONObject;
 
 import static course_project.api.methods.TaskMethods.METHOD_CREATE_TASK;
-import static course_project.envPropertiesSetup.EnvTestDataSetup.TESTDATA_TASK_TITLE;
 
 public class CreateTaskRequestAssembler {
 
-    public static JSONObject assembleCreateTaskRequest(String projectId) {
+    public static JSONObject assembleCreateTaskRequest(String projectId, String taskTitle) {
         GenericData genericData = GenericData
                 .builder()
                 .method(METHOD_CREATE_TASK)
@@ -17,7 +16,7 @@ public class CreateTaskRequestAssembler {
 
         TaskParamsData taskParams = TaskParamsData
                 .builder()
-                .title(TESTDATA_TASK_TITLE)
+                .title(taskTitle)
                 .project_id(Integer.parseInt(projectId))
                 .build();
 

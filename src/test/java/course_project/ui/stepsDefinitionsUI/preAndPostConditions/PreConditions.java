@@ -1,12 +1,12 @@
 package course_project.ui.stepsDefinitionsUI.preAndPostConditions;
 
 import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.WebDriverRunner;
 import io.cucumber.java.en.Given;
 import org.openqa.selenium.Cookie;
 
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.refresh;
+import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static course_project.api.stepsDefinitionsAPI.ProjectSteps.newProjectId;
 import static course_project.api.stepsDefinitionsAPI.TaskSteps.newTaskId;
 import static course_project.envPropertiesSetup.EnvAuthAndCookiesSetup.*;
@@ -26,7 +26,7 @@ public class PreConditions {
         Selenide.refresh();
     }
 
-    @Given("User should have task opened")
+    @Given("User should have last created task opened")
     public void openNewTask() {
         Selenide.open(BASE_URL + "/task/" + newTaskId);
         Selenide.refresh();
@@ -35,7 +35,8 @@ public class PreConditions {
     @Given("User should be logged in")
     public void createUserSession() {
         open(BASE_URL);
-        WebDriverRunner.getWebDriver().manage().addCookie(new Cookie(COOKIE_NAME, COOKIE_VALUE));
+        getWebDriver().manage().addCookie(new Cookie(COOKIE_NAME, COOKIE_VALUE));
+        getWebDriver().manage().window().maximize();
         refresh();
     }
 }

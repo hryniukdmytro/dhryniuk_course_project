@@ -16,7 +16,7 @@ public class UserSteps {
 
     private static String newUserId;
 
-    @When("Send user creation API request")
+    @When("User creation request was sent via API")
     public void createUserViaAPI() {
         Response userCreationResponse = postRequest(API_USERNAME, API_TOKEN,
                 assembleCreateUserRequest().toString());
@@ -34,7 +34,7 @@ public class UserSteps {
         Assert.assertEquals(actualUsername, TESTDATA_NEW_USER_NAME);
     }
 
-    @When("Send user remove API request")
+    @When("Remove last created user request was sent via API")
     public void removeUserViaAPI() {
         Response userRemoveResponse = deleteRequest(API_USERNAME, API_TOKEN,
                 assembleRemoveUserRequest(newUserId).toString());

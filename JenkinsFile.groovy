@@ -1,5 +1,4 @@
 pipeline {
-
     tools {
         maven 'Maven'
         jdk 'JDK_17'
@@ -8,15 +7,8 @@ pipeline {
 
     parameters {
         choice(name: 'testSuite',
-                choices:
-                        ['allTests',
-                         'onlyAPITests',
-                         'onlyUITests',
-                         'projectTests',
-                         'taskTests',
-                         'userTests'],
-                description:
-                        'Select the test suite to execute'
+                choices: ['allTests', 'onlyAPITests', 'onlyUITests', 'projectTests', 'taskTests', 'userTests'],
+                description: 'Select the test suite to execute'
         )
     }
 
@@ -24,7 +16,16 @@ pipeline {
         stage('Build and Run Tests') {
             steps {
                 script {
-                    sh "mvn clean test -Dsuite=${params.testSuite}"
+                    def testSuiteParameters = [
+                            'All Tests': '-Dsuite=allTests',
+                            'All API Tests': '-Dsuite=onlyAPITests',
+                            'All UI Tests': '-Dsuite=onlyUITests',
+                            '[API & UI] Project Tests': '-Dsuite=projectTests',
+                            '[API & UI] Task Tests': '-Dsuite=taskTests',
+                            '[API & UI] User Tests': '-Dsuite=userTests'
+                    ]
+
+                    sh "mvn clean test ${testSuiteParameters[params.testSuite]}"
                 }
             }
         }

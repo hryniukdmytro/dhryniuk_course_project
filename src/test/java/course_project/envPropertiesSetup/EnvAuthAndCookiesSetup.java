@@ -1,6 +1,5 @@
 package course_project.envPropertiesSetup;
 
-
 import static course_project.envPropertiesSetup.GetPropertiesFromFile.*;
 
 public class EnvAuthAndCookiesSetup {
@@ -9,15 +8,18 @@ public class EnvAuthAndCookiesSetup {
     public static String API_USERNAME;
     public static String API_TOKEN;
 
-
     public static void authConstantsSetup() {
-        API_URL = propertyValue(PATH_TO_RESOURCE, ENV_PROPERTIES_FILE_NAME, "apiURL");
         API_USERNAME = propertyValue(PATH_TO_RESOURCE, ENV_PROPERTIES_FILE_NAME, "username");
         API_TOKEN = propertyValue(PATH_TO_RESOURCE, ENV_PROPERTIES_FILE_NAME, "token");
 
-        String baseURLFromSystemProperty = System.getProperty("baseURL");
-        BASE_URL = (baseURLFromSystemProperty != null && !baseURLFromSystemProperty.isEmpty())
-                ? baseURLFromSystemProperty
-                : propertyValue(PATH_TO_RESOURCE, ENV_PROPERTIES_FILE_NAME, "baseURL");
+        API_URL = System.getProperty("API_URL");
+        if (API_URL == null) {
+            API_URL = propertyValue(PATH_TO_RESOURCE, ENV_PROPERTIES_FILE_NAME, "apiURL");
+        }
+
+        BASE_URL = System.getProperty("baseURL");
+        if (BASE_URL == null) {
+            BASE_URL = propertyValue(PATH_TO_RESOURCE, ENV_PROPERTIES_FILE_NAME, "baseURL");
+        }
     }
 }

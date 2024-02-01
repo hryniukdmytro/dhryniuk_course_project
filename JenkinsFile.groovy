@@ -11,7 +11,7 @@ pipeline {
         stage('Build and Run Tests') {
             steps {
                 script {
-                    sh 'mvn clean test -DSuite=onlyAPITests'
+                    sh 'mvn clean test -Dsuite=onlyAPITests'
                 }
             }
         }

@@ -15,6 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.sleep;
 
 public class GenericStepDefinitions {
 
@@ -53,6 +54,7 @@ public class GenericStepDefinitions {
         String[] words = rawState.split("\\s+");
         String actualState = words[words.length -1];
 
+        sleep(500);
         Assert.assertEquals(actualState, expectedState);
     }
 

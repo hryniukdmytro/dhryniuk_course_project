@@ -6,9 +6,6 @@ import java.util.Map;
 import static course_project.envPropertiesSetup.GetPropertiesFromFile.*;
 
 public class EnvTestDataSetup {
-
-    public static String TESTDATA_LOGIN;
-    public static String TESTDATA_PASSWORD;
     public static String TESTDATA_NEW_USER_NAME;
     public static String TESTDATA_NEW_USER_PASSWORD;
     public static int TESTDATA_BOARD_COLUMN_BACKLOG;
@@ -20,8 +17,6 @@ public class EnvTestDataSetup {
     public static void testDataConstantsSetup() {
 
         // Test user data
-        TESTDATA_LOGIN = propertyValue(PATH_TO_RESOURCE, TESTDATA_PROPERTIES_FILE_NAME, "login");
-        TESTDATA_PASSWORD = propertyValue(PATH_TO_RESOURCE, TESTDATA_PROPERTIES_FILE_NAME, "password");
         TESTDATA_NEW_USER_NAME = propertyValue(PATH_TO_RESOURCE, TESTDATA_PROPERTIES_FILE_NAME, "newUserName");
         TESTDATA_NEW_USER_PASSWORD = propertyValue(PATH_TO_RESOURCE, TESTDATA_PROPERTIES_FILE_NAME, "newUserPassword");
 

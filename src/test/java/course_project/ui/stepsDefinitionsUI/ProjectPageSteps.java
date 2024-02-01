@@ -34,7 +34,7 @@ public class ProjectPageSteps extends ProjectPageElements {
 
     // <----- Asserts & Checks ----->
 
-    @Then("Task {string} should be in {string} column")
+    @Then("Task {string} should be displayed in {string} column")
     public void verifyTaskInColumn(String taskTitle, String columnName) {
         Integer columnId = COLUMN_ID_MAP.get(columnName);
         actions().release().perform();

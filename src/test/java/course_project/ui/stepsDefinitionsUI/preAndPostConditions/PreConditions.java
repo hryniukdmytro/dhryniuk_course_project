@@ -17,7 +17,7 @@ public class PreConditions {
 
     @Given("Login page should be opened")
     public void openLoginPage() {
-        open("http://localhost");
+        open("http://127.0.0.1");
     }
 
     @Given("User should have project opened")

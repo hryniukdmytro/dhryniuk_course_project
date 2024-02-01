@@ -10,7 +10,7 @@ Feature: [UI] Project Task Test Cases
     When Project_Configurations_Dropdown on Project_Page has been clicked
     And Add_Task_Button on Project_Page has been clicked
     And Text "Task to create" was entered into Form_Title_TextField on Project_Page
-    And Modal_Save_Button on Project_Page has been clicked
+    And Save_Modal_Button on Project_Page has been clicked
     And View_Task_List_Button on Project_Page has been clicked
     And Existing_Task_Title on Project_Page has been clicked
     # Final Check
@@ -42,7 +42,7 @@ Feature: [UI] Project Task Test Cases
     # Steps
     When Add_Comment_Button on Project_Page has been clicked
     And Text "Test Comment" was entered into Comment_Modal_TextArea on Project_Page
-    And Save_Comment_Button on Project_Page has been clicked
+    And Save_Modal_Button on Project_Page has been clicked
     # Final Check
     Then Text "Test Comment" should be displayed in Added_Comment on Project_Page
 
@@ -57,10 +57,10 @@ Feature: [UI] Project Task Test Cases
     # Steps
     When Add_SubTask_Button on Project_Page has been clicked
     And Text "Test Sub-Task" was entered into Form_Title_TextField on Project_Page
-    And Save_SubTask_Button on Project_Page has been clicked
+    And Save_Modal_Button on Project_Page has been clicked
     Then Text "Test Sub-Task" should be displayed in Existing_SubTask_Title on Project_Page
 
-  Scenario: Verify that task can be copied from another project
+  Scenario: Verify that task can be duplicated to another project
     # Preconditions
     When API request to create a project with name "Task Copying Test Project #1" was sent
     And User was set as member of last created project via API
@@ -76,7 +76,7 @@ Feature: [UI] Project Task Test Cases
     When Duplicate_To_Project_Button on Project_Page has been clicked
     And Select_Project_To_CopyTo_Dropdown on Project_Page has been clicked
     And Selected project to copy to is "Task Copying Test Project #1"
-    And Duplicate_Task_Save_Button on Project_Page has been clicked
+    And Save_Modal_Button on Project_Page has been clicked
     And Link_To_Duplicated_Task on Project_Page has been clicked
     # Final Check
     Then Text "Task Copying Test Project #1" should be displayed in Project_Title on Project_Page
@@ -91,13 +91,13 @@ Feature: [UI] Project Task Test Cases
     And User should have project opened
     # Steps & Checks
     When Task "Task To Move" was moved to "Ready" column
-    Then Task "Task To Move" should be in "Ready" column
+    Then Task "Task To Move" should be displayed in "Ready" column
     When Task "Task To Move" was moved to "Work in progress" column
-    Then Task "Task To Move" should be in "Work in progress" column
+    Then Task "Task To Move" should be displayed in "Work in progress" column
     When Task "Task To Move" was moved to "Done" column
-    Then Task "Task To Move" should be in "Done" column
+    Then Task "Task To Move" should be displayed in "Done" column
     When Task "Task To Move" was moved to "Backlog" column
-    Then Task "Task To Move" should be in "Backlog" column
+    Then Task "Task To Move" should be displayed in "Backlog" column
 
   Scenario: Clean up
     Given All projects should be removed

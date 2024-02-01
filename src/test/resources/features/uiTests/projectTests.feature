@@ -6,7 +6,7 @@ Feature: [UI] Project Test Сases
     # Steps
     When New_Project_Button on Main_Page has been clicked
     And Text "Test Project" was entered into Project_Name_Modal_TextField on Project_Page
-    And Modal_Save_Button on Project_Page has been clicked
+    And Save_Modal_Button on Project_Page has been clicked
     # Final Check
     Then Text "Test Project" should be displayed in Project_Title on Project_Page
 

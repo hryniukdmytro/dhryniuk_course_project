@@ -31,40 +31,37 @@ public class ProjectPageElements extends BasePage {
 
     // <-------------- Buttons ------------>
 
-    public final SelenideElement modalSaveButton = $("[class='btn btn-blue']");
-    public final SelenideElement addNewTaskButton = $(".dropdown-submenu-open li:nth-child(4)");
-    public final SelenideElement viewListingButton = $("[class='view-listing']");
-    public final SelenideElement closeTaskButton = $("[class='fa fa-times fa-fw js-modal-confirm']");
+    public final SelenideElement saveModalButton = $("button.btn.btn-blue:not(.accordion-content.comments button)");
     public final SelenideElement yesModalButton = $("[id='modal-confirm-button']");
-    public final SelenideElement addCommentButton = $("li:nth-child(6) > a.js-modal-small");
-    public final SelenideElement closeThisProjectButton = $(".sidebar ul:nth-child(1) > li:nth-child(17)");
-    public final SelenideElement configureThisProjectButton = $(".dropdown-submenu-open li:nth-child(10)");
-    public final SelenideElement addSubTaskButton = $(".sidebar-icons ul:nth-child(4) > li:nth-child(3)");
-    public final SelenideElement duplicateToProjectButton = $(".sidebar-icons ul:nth-child(4) > li:nth-child(10)");
-    public final SelenideElement saveSubTaskButton = $(".js-submit-buttons-rendered:nth-child(11) div.form-actions > button.btn.btn-blue:nth-child(1)");
-    public final SelenideElement saveCommentButton = $("div.js-submit-buttons-rendered:nth-child(3) div.form-actions > button.btn.btn-blue:nth-child(1)");
-    public final SelenideElement duplicateTaskSaveButton = $(".js-submit-buttons-rendered:nth-child(17) div.form-actions > button.btn.btn-blue:nth-child(1)");
+    public final SelenideElement configureThisProjectButton = $(".dropdown-submenu-open [class*='fa-cog']");
+    public final SelenideElement closeThisProjectButton = $x("//a[contains(text(),'Close this project')]");
+    public final SelenideElement addCommentButton = $(".sidebar [class*='fa-comment-o']");
+    public final SelenideElement addNewTaskButton = $(".dropdown-submenu-open [class*='fa-plus']");
+    public final SelenideElement closeTaskButton = $("[class='fa fa-times fa-fw js-modal-confirm']");
+    public final SelenideElement duplicateToProjectButton = $(".sidebar-icons [class*='fa-clipboard']");
+    public final SelenideElement addSubTaskButton = $(".sidebar-icons [class*='fa-plus']");
+    public final SelenideElement viewTaskListButton = $("[class='view-listing']");
 
     // <-------------- Dropdowns ------------>
 
     public final SelenideElement projectConfigDropdown = $("[class='fa fa-cog']");
-    public final SelenideElement selectProjectToCopyToDropdown = $(".js-select-dropdown-autocomplete-rendered:nth-child(4) > div.select-dropdown-input-container");
+    public final SelenideElement selectProjectToCopyToDropdown = $("#modal-content .select-dropdown-input-container");
 
     // <------ TextFields & TextAreas ------->
 
     public final SelenideElement projectNameModalTextField = $("[id='form-name']");
     public final SelenideElement formTitleTextField = $("[id=form-title]");
-    public final SelenideElement commentModalTextArea = $("div.js-text-editor-rendered:nth-child(2) div.text-editor:nth-child(2) div.text-editor-write-mode > textarea:nth-child(2)");
+    public final SelenideElement commentModalTextArea = $("#modal-content [name='comment']");
 
     // <-------------- Other ---------------->
 
-    public final SelenideElement projectTitle = $(".title-container h1:nth-child(1) > span.title");
+    public final SelenideElement projectTitle = $("[class=title]");
     public final SelenideElement existingTaskTitle = $("[class='table-list-title ']");
-    public final SelenideElement existingSubTaskTitle = $(".subtask-title > a.js-subtask-toggle-status");
+    public final SelenideElement existingSubTaskTitle = $("[class='subtask-title']");
     public final SelenideElement addedComment = $("div.markdown > p:nth-child(1)");
-    public final SelenideElement taskState = $("div.task-summary-column:nth-child(1) ul.no-bullet li:nth-child(1) > span:nth-child(2)");
+    public final SelenideElement taskState = $x("//strong[contains(text(),'Status:')]/following-sibling::span");
     public final SelenideElement projectState = $(".panel:nth-child(2) li:nth-child(1) > strong:nth-child(1)");
-    public final SelenideElement linkToDuplicatedTask = $(".table-scrolling tbody:nth-child(1) tr:nth-child(2) td:nth-child(1) > a:nth-child(2)");
+    public final SelenideElement linkToDuplicatedTask = $(".task-links-table a[href^='/task/'][title]");
 
 
     @Override
@@ -81,9 +78,8 @@ public class ProjectPageElements extends BasePage {
         Map<String, Supplier<SelenideElement>> elements = new HashMap<>();
 
         // Buttons
-        elements.put("Modal_Save_Button", this::getModalSaveButton);
         elements.put("Add_Task_Button", this::getAddNewTaskButton);
-        elements.put("View_Task_List_Button", this::getViewListingButton);
+        elements.put("View_Task_List_Button", this::getViewTaskListButton);
         elements.put("Close_Task_Button", this::getCloseTaskButton);
         elements.put("Yes_Modal_Button", this::getYesModalButton);
         elements.put("Add_Comment_Button", this::getAddCommentButton);
@@ -91,9 +87,7 @@ public class ProjectPageElements extends BasePage {
         elements.put("Configure_Project_Button", this::getConfigureThisProjectButton);
         elements.put("Add_SubTask_Button", this::getAddSubTaskButton);
         elements.put("Duplicate_To_Project_Button", this::getDuplicateToProjectButton);
-        elements.put("Save_SubTask_Button", this::getSaveSubTaskButton);
-        elements.put("Save_Comment_Button", this::getSaveCommentButton);
-        elements.put("Duplicate_Task_Save_Button", this::getDuplicateTaskSaveButton);
+        elements.put("Save_Modal_Button", this::getSaveModalButton);
 
         // Dropdowns
         elements.put("Project_Configurations_Dropdown", this::getProjectConfigDropdown);

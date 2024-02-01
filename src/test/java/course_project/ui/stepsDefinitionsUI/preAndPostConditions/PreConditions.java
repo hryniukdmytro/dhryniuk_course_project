@@ -18,11 +18,14 @@ public class PreConditions {
     @Given("Login page should be opened")
     public void openLoginPage() {
         open(BASE_URL);
+        getWebDriver().manage().window().maximize();
+
     }
 
     @Given("User should have project opened")
     public void openNewProject() {
         Selenide.open(BASE_URL + "/board/" + newProjectId);
+        getWebDriver().manage().window().maximize();
         Selenide.refresh();
     }
 
@@ -30,6 +33,7 @@ public class PreConditions {
     public void openNewTask() {
         Selenide.open(BASE_URL + "/task/" + newTaskId);
         Selenide.refresh();
+        getWebDriver().manage().window().maximize();
     }
 
     @Given("User should be logged in")

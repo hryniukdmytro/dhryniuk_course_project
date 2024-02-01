@@ -23,11 +23,6 @@ pipeline {
                 defaultValue: 'http://127.0.0.1',
                 description: 'Enter the base URL (leave untouched if running on the local version)'
         )
-        string(
-                name: 'apiURL',
-                defaultValue: 'http://127.0.0.1/jsonrpc.php',
-                description: 'Enter the API URL (leave untouched if running on the local version)'
-        )
     }
 
     stages {
@@ -43,7 +38,7 @@ pipeline {
                             '[API & UI] User Tests': '-Dsuite=userTests'
                     ]
 
-                    sh "mvn clean test ${testSuiteParameters[params.testSuite]} -DbaseURL=${params.baseURL} -DapiURL=${params.apiURL}"
+                    sh "mvn clean test ${testSuiteParameters[params.testSuite]} -DbaseURL=${params.baseURL}"
                 }
             }
         }

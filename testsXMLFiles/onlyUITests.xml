@@ -1,0 +1,33 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Only UI Tests">
+    <test name="[Chrome] UI Tests">
+        <classes>
+            <class name="course_project.runners.uiRunners.allFeatures.TestRunnerChrome"/>
+        </classes>
+    </test>
+    <test name="[Chrome Headless] UI Tests">
+        <classes>
+            <class name="course_project.runners.uiRunners.allFeatures.TestRunnerChromeHeadless"/>
+        </classes>
+    </test>
+    <test name="[Firefox] UI Tests">
+        <classes>
+            <class name="course_project.runners.uiRunners.allFeatures.TestRunnerFirefox"/>
+        </classes>
+    </test>
+    <test name="[Chrome] Rerun failed UI Tests">
+        <classes>
+            <class name="course_project.runners.uiRunners.retryFailed.RerunTestRunnerChrome"/>
+        </classes>
+    </test>
+    <test name="[Chrome Headless] Rerun failed UI Tests">
+        <classes>
+            <class name="course_project.runners.uiRunners.retryFailed.RerunTestRunnerChromeHeadless"/>
+        </classes>
+    </test>
+    <test name="[Firefox] Rerun failed UI Tests">
+        <classes>
+            <class name="course_project.runners.uiRunners.retryFailed.RerunTestRunnerFirefox"/>
+        </classes>
+    </test>
+</suite>

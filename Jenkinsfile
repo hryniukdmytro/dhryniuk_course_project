@@ -25,6 +25,10 @@ pipeline {
         )
     }
 
+    environment {
+        TZ = 'Europe/Kiev'
+    }
+
     stages {
         stage('Build and Run Tests') {
             steps {

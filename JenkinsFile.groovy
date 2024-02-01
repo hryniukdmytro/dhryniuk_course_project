@@ -7,7 +7,12 @@ pipeline {
 
     parameters {
         choice(name: 'testSuite',
-                choices: ['allTests', 'onlyAPITests', 'onlyUITests', 'projectTests', 'taskTests', 'userTests'],
+                choices: ['All Tests',
+                          'All API Tests',
+                          'All UI Tests',
+                          '[API & UI] Project Tests',
+                          '[API & UI] Task Tests',
+                          '[API & UI] User Tests'],
                 description: 'Select the test suite to execute'
         )
     }

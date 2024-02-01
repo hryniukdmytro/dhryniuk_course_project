@@ -12,8 +12,12 @@ public class EnvAuthAndCookiesSetup {
 
     public static void authConstantsSetup() {
         API_URL = propertyValue(PATH_TO_RESOURCE, ENV_PROPERTIES_FILE_NAME, "apiURL");
-        BASE_URL = propertyValue(PATH_TO_RESOURCE, ENV_PROPERTIES_FILE_NAME, "baseURL");
         API_USERNAME = propertyValue(PATH_TO_RESOURCE, ENV_PROPERTIES_FILE_NAME, "username");
         API_TOKEN = propertyValue(PATH_TO_RESOURCE, ENV_PROPERTIES_FILE_NAME, "token");
+
+        String baseURLFromSystemProperty = System.getProperty("baseURL");
+        BASE_URL = (baseURLFromSystemProperty != null && !baseURLFromSystemProperty.isEmpty())
+                ? baseURLFromSystemProperty
+                : propertyValue(PATH_TO_RESOURCE, ENV_PROPERTIES_FILE_NAME, "baseURL");
     }
 }

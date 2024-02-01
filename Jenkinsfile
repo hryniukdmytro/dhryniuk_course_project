@@ -1,4 +1,8 @@
 pipeline {
+    triggers {
+        cron('H 19 * * *')
+    }
+
     tools {
         maven 'Maven'
         jdk 'JDK_17'
@@ -23,10 +27,6 @@ pipeline {
                 defaultValue: 'http://localhost',
                 description: 'Enter the base URL (leave untouched if running on the local version)'
         )
-    }
-
-    environment {
-        TZ = 'Europe/Kiev'
     }
 
     stages {

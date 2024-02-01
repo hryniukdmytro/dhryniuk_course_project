@@ -7,7 +7,7 @@ pipeline {
 
     parameters {
         choice(
-                name: 'testSuite',
+                name: 'Test Suite',
                 choices: [
                         'All Tests',
                         'All API Tests',
@@ -19,12 +19,12 @@ pipeline {
                 description: 'Select the test suite to execute'
         )
         string(
-                name: 'baseURL',
+                name: 'Base URL',
                 defaultValue: 'http://127.0.0.1',
                 description: 'Enter the base URL (leave untouched if running on the local version)'
         )
         string(
-                name: 'apiURL',
+                name: 'API URL',
                 defaultValue: 'http://127.0.0.1/jsonrpc.php',
                 description: 'Enter the API URL (leave untouched if running on the local version)'
         )

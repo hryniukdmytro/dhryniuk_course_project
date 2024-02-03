@@ -24,7 +24,7 @@ pipeline {
         )
         string(
                 name: 'baseURL',
-                defaultValue: 'http://localhost',
+                defaultValue: 'http://127.0.0.1',
                 description: 'Enter the base URL (leave untouched if running on the local version)'
         )
     }

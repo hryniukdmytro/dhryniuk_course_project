@@ -15,7 +15,6 @@ import org.testng.annotations.DataProvider;
         glue = {"course_project.ui.stepsDefinitionsUI", "course_project.api.stepsDefinitionsAPI"}
 )
 public class UserTestRunnerChromeHeadless extends AbstractTestNGCucumberTests {
-
     @Override
     @DataProvider
     public Object[][] scenarios() {

@@ -1,5 +1,14 @@
 package course_project.api.projectRoles;
 
-public class ProjectRoles {
-    public static final String ROLE_PROJECT_MEMBER = "project-member";
+import lombok.Getter;
+
+@Getter
+public enum ProjectRoles {
+    PROJECT_MEMBER("project-member");
+
+    private final String roleName;
+
+    ProjectRoles(String roleName) {
+        this.roleName = roleName;
+    }
 }

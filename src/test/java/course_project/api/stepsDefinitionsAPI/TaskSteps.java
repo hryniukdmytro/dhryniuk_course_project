@@ -9,6 +9,7 @@ import static course_project.api.queries.QueryFormats.*;
 import static course_project.api.requestAssemblers.taskRequests.CreateTaskRequestAssembler.assembleCreateTaskRequest;
 import static course_project.api.requestAssemblers.taskRequests.GetTaskRequestAssembler.assembleGetTaskRequest;
 import static course_project.api.requestAssemblers.taskRequests.RemoveTaskRequestAssembler.assembleRemoveTaskRequest;
+import static course_project.api.stepsDefinitionsAPI.GenericAPISteps.assertAPIResponseStatusCode;
 import static course_project.api.stepsDefinitionsAPI.ProjectSteps.newProjectId;
 import static course_project.envPropertiesSetup.EnvAuthAndCookiesSetup.*;
 
@@ -19,18 +20,16 @@ public class TaskSteps {
     public void createTaskViaAPI(String taskTitle) {
         Response createTaskResponse = postRequest(API_USERNAME, API_TOKEN,
                 assembleCreateTaskRequest(newProjectId, taskTitle).toString());
-        createTaskResponse.then().statusCode(200);
+        assertAPIResponseStatusCode(createTaskResponse);
         newTaskId = createTaskResponse.jsonPath().getString("result");
     }
 
-    @Then("Task with name {string} should be created")
-    public void checkWhetherTaskCreated(String taskTitle) {
+    @Then("Verify that task with name {string} is created")
+    public void verifyThatTaskIsCreated(String taskTitle) {
         Response getTaskResponse = getRequest(API_USERNAME, API_TOKEN,
                 assembleGetTaskRequest(newTaskId).toString());
-        getTaskResponse.then().statusCode(200);
-
+        assertAPIResponseStatusCode(getTaskResponse);
         String actualTaskTitle = getTaskResponse.jsonPath().getString("result.title");
-
         Assert.assertEquals(actualTaskTitle, taskTitle);
     }
 
@@ -38,15 +37,14 @@ public class TaskSteps {
     public void removeTaskViaAPI() {
         Response removeTaskResponse = deleteRequest(API_USERNAME, API_TOKEN,
                 assembleRemoveTaskRequest(newTaskId).toString());
-        removeTaskResponse.then().statusCode(200);
+        assertAPIResponseStatusCode(removeTaskResponse);
     }
 
-    @Then("Task should be removed")
-    public void checkWhetherTaskRemoved() {
+    @Then("Verify that task is removed")
+    public void verifyThatTaskIsRemoved() {
         Response getTaskResponse = getRequest(API_USERNAME, API_TOKEN,
                 assembleGetTaskRequest(newTaskId).toString());
-        getTaskResponse.then().statusCode(200);
-
+        assertAPIResponseStatusCode(getTaskResponse);
         String doesTaskExist = getTaskResponse.jsonPath().getString("result");
         Assert.assertNull(doesTaskExist);
     }

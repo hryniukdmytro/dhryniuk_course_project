@@ -9,27 +9,26 @@ import static course_project.api.queries.QueryFormats.*;
 import static course_project.api.requestAssemblers.userRequests.CreateUserRequestAssembler.assembleCreateUserRequest;
 import static course_project.api.requestAssemblers.userRequests.GetUserRequestAssembler.assembleGetUserRequest;
 import static course_project.api.requestAssemblers.userRequests.RemoveUserRequestAssembler.assembleRemoveUserRequest;
+import static course_project.api.stepsDefinitionsAPI.GenericAPISteps.assertAPIResponseStatusCode;
 import static course_project.envPropertiesSetup.EnvAuthAndCookiesSetup.*;
 import static course_project.envPropertiesSetup.EnvTestDataSetup.TESTDATA_NEW_USER_NAME;
 
 public class UserSteps {
-
     private static String newUserId;
 
     @When("User creation request was sent via API")
     public void createUserViaAPI() {
         Response userCreationResponse = postRequest(API_USERNAME, API_TOKEN,
                 assembleCreateUserRequest().toString());
-        userCreationResponse.then().statusCode(200);
+        assertAPIResponseStatusCode(userCreationResponse);
         newUserId = userCreationResponse.jsonPath().getString("result");
     }
 
-    @Then("User should be created")
-    public void checkWhetherCreatedUserCreated() {
+    @Then("Verify that user is created")
+    public void verifyThatUserIsCreated() {
         Response getUserResponse = getRequest(API_USERNAME, API_TOKEN,
                 assembleGetUserRequest(newUserId).toString());
-        getUserResponse.then().statusCode(200);
-
+        assertAPIResponseStatusCode(getUserResponse);
         String actualUsername = getUserResponse.jsonPath().getString("result.username");
         Assert.assertEquals(actualUsername, TESTDATA_NEW_USER_NAME);
     }
@@ -38,15 +37,14 @@ public class UserSteps {
     public void removeUserViaAPI() {
         Response userRemoveResponse = deleteRequest(API_USERNAME, API_TOKEN,
                 assembleRemoveUserRequest(newUserId).toString());
-        userRemoveResponse.then().statusCode(200);
+        assertAPIResponseStatusCode(userRemoveResponse);
     }
 
-    @Then("User should be removed")
-    public void checkWhetherCreatedUserRemoved() {
+    @Then("Verify that user is removed")
+    public void verifyThatUserIsRemoved() {
         Response getUserResponse = getRequest(API_USERNAME, API_TOKEN,
                 assembleGetUserRequest(newUserId).toString());
-        getUserResponse.then().statusCode(200);
-
+        assertAPIResponseStatusCode(getUserResponse);
         String doesUserExist = getUserResponse.jsonPath().getString("result");
         Assert.assertNull(doesUserExist);
     }

@@ -1,8 +1,16 @@
 package course_project.api.methods;
 
-public class TaskMethods {
+import lombok.Getter;
 
-    public static final String METHOD_GET_TASK = "getTask";
-    public static final String METHOD_CREATE_TASK = "createTask";
-    public static final String METHOD_REMOVE_TASK = "removeTask";
+@Getter
+public enum TaskMethods {
+    GET_TASK("getTask"),
+    CREATE_TASK("createTask"),
+    REMOVE_TASK("removeTask");
+
+    private final String methodName;
+
+    TaskMethods(String methodName) {
+        this.methodName = methodName;
+    }
 }

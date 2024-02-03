@@ -15,16 +15,12 @@ public class PostConditions {
     @Given("All projects should be removed")
     public void removeAllProjects() {
         authConstantsSetup();
-
         Response getAllProjectsResponse = getRequest(API_USERNAME, API_TOKEN,
                 assembleGetAllProjectRequest().toString());
         getAllProjectsResponse.then().statusCode(200);
-
         List<Integer> projectIds = getAllProjectsResponse.jsonPath().getList("result.id");
-
         for (Integer projectId : projectIds) {
-            Response removeAllProjectsResponse = deleteRequest(API_USERNAME, API_TOKEN,
-                    assembleRemoveProjectRequest(String.valueOf(projectId)).toString());
+            Response removeAllProjectsResponse = deleteRequest(API_USERNAME, API_TOKEN, assembleRemoveProjectRequest(String.valueOf(projectId)).toString());
             removeAllProjectsResponse.then().statusCode(200);
         }
     }

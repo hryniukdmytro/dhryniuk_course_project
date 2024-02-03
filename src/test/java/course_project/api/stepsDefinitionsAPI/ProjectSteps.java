@@ -10,36 +10,34 @@ import static course_project.api.requestAssemblers.projectRequests.AddProjectMem
 import static course_project.api.requestAssemblers.projectRequests.CreateProjectRequestWithSetNameAssembler.assembleCreateProjectWithSetNameRequest;
 import static course_project.api.requestAssemblers.projectRequests.GetProjectByIdRequestAssembler.assembleGetProjectByIdRequest;
 import static course_project.api.requestAssemblers.projectRequests.RemoveProjectRequestAssembler.assembleRemoveProjectRequest;
+import static course_project.api.stepsDefinitionsAPI.GenericAPISteps.assertAPIResponseStatusCode;
 import static course_project.envPropertiesSetup.EnvAuthAndCookiesSetup.*;
 
 public class ProjectSteps {
     public static String newProjectId;
 
-    @Then("Project with name {string} should be created")
-    public void checkWhetherProjectIsCreated(String projectName) {
+    @Then("Verify that project with name {string} is created")
+    public void verifyThatProjectCreated(String projectName) {
         Response getProjectByIdResponse = getRequest(API_USERNAME, API_TOKEN,
                 assembleGetProjectByIdRequest(newProjectId).toString());
-        getProjectByIdResponse.then().statusCode(200);
-
+        assertAPIResponseStatusCode(getProjectByIdResponse);
         String actualProjectName = getProjectByIdResponse.jsonPath().getString("result.name");
-
-        Assert.assertEquals(actualProjectName, projectName);}
+        Assert.assertEquals(actualProjectName, projectName);
+    }
 
     @When("API request to remove last created project has been sent")
     public void removeProjectViaAPI() {
         Response removeProjectResponse = deleteRequest(API_USERNAME, API_TOKEN,
                 assembleRemoveProjectRequest(newProjectId).toString());
-        removeProjectResponse.then().statusCode(200);
+        assertAPIResponseStatusCode(removeProjectResponse);
     }
 
-    @Then("Project should be removed")
-    public void checkWhetherProjectIsRemoved() {
+    @Then("Verify that project is removed")
+    public void verifyThatProjectIsRemoved() {
         Response getProjectByIdResponse = getRequest(API_USERNAME, API_TOKEN,
                 assembleGetProjectByIdRequest(newProjectId).toString());
-        getProjectByIdResponse.then().statusCode(200);
-
+        assertAPIResponseStatusCode(getProjectByIdResponse);
         String actualProjectState = getProjectByIdResponse.jsonPath().getString("result");
-
         Assert.assertNull(actualProjectState);
     }
 
@@ -47,7 +45,7 @@ public class ProjectSteps {
     public void createProjectWithSetNameViaAPI(String projectName) {
         Response createProjectWithSetNameResponse = postRequest(API_USERNAME, API_TOKEN,
                 assembleCreateProjectWithSetNameRequest(projectName).toString());
-        createProjectWithSetNameResponse.then().statusCode(200);
+        assertAPIResponseStatusCode(createProjectWithSetNameResponse);
         newProjectId = createProjectWithSetNameResponse.jsonPath().getString("result");
     }
 
@@ -55,6 +53,6 @@ public class ProjectSteps {
     public void setUserAsProjectMember() {
         Response addProjectMemberResponse = postRequest(API_USERNAME, API_TOKEN,
                 assembleAddProjectMemberRequest(newProjectId).toString());
-        addProjectMemberResponse.then().statusCode(200);
+        assertAPIResponseStatusCode(addProjectMemberResponse);
     }
 }

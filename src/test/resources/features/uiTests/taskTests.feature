@@ -3,7 +3,7 @@ Feature: [UI] Project Task Test Cases
   Scenario: Verify that new task can be created
     # Preconditions
     When API request to create a project with name "Task Adding Test" was sent
-    Then Project with name "Task Adding Test" should be created
+    Then Verify that project with name "Task Adding Test" is created
     Given User should be logged in
     Given User should have project opened
     # Steps
@@ -20,9 +20,9 @@ Feature: [UI] Project Task Test Cases
   Scenario: Verify that new task can be closed
     # Preconditions
     When API request to create a project with name "Task Closure Test" was sent
-    Then Project with name "Task Closure Test" should be created
+    Then Verify that project with name "Task Closure Test" is created
     When Task with name "Task To Close" was added to the last created project via API
-    Then Task with name "Task To Close" should be created
+    Then Verify that task with name "Task To Close" is created
     Given User should be logged in
     And User should have last created task opened
     # Steps
@@ -34,9 +34,9 @@ Feature: [UI] Project Task Test Cases
   Scenario: Verify that comment can be added to the task
     # Preconditions
     When API request to create a project with name "Comment Adding Test" was sent
-    Then Project with name "Comment Adding Test" should be created
+    Then Verify that project with name "Comment Adding Test" is created
     When Task with name "Task To Comment" was added to the last created project via API
-    Then Task with name "Task To Comment" should be created
+    Then Verify that task with name "Task To Comment" is created
     Given User should be logged in
     And User should have last created task opened
     # Steps
@@ -49,9 +49,9 @@ Feature: [UI] Project Task Test Cases
   Scenario: Verify that subtask can be created
     # Preconditions
     When API request to create a project with name "Sub-Task Adding Test" was sent
-    Then Project with name "Sub-Task Adding Test" should be created
+    Then Verify that project with name "Sub-Task Adding Test" is created
     When Task with name "Task For Sub-Task" was added to the last created project via API
-    Then Task with name "Task For Sub-Task" should be created
+    Then Verify that task with name "Task For Sub-Task" is created
     Given User should be logged in
     And User should have last created task opened
     # Steps
@@ -69,7 +69,7 @@ Feature: [UI] Project Task Test Cases
     And API request to create a project with name "Task Copying Test Project #3" was sent
     And User was set as member of last created project via API
     When Task with name "Task To Copy" was added to the last created project via API
-    Then Task with name "Task To Copy" should be created
+    Then Verify that task with name "Task To Copy" is created
     Given User should be logged in
     And User should have last created task opened
     # Steps
@@ -84,9 +84,9 @@ Feature: [UI] Project Task Test Cases
   Scenario: Verify that task can be moved within phases
     # Preconditions
     When API request to create a project with name "Moving Task Over Board Test" was sent
-    Then Project with name "Moving Task Over Board Test" should be created
+    Then Verify that project with name "Moving Task Over Board Test" is created
     When Task with name "Task To Move" was added to the last created project via API
-    Then Task with name "Task To Move" should be created
+    Then Verify that task with name "Task To Move" is created
     Given User should be logged in
     And User should have project opened
     # Steps & Checks

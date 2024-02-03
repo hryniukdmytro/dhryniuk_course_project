@@ -1,8 +1,16 @@
 package course_project.api.methods;
 
-public class UserMethods {
-    public static final String METHOD_CREATE_USER = "createUser";
-    public static final String METHOD_GET_USER = "getUser";
-    public static final String METHOD_REMOVE_USER = "removeUser";
+import lombok.Getter;
 
+@Getter
+public enum UserMethods {
+    CREATE_USER("createUser"),
+    GET_USER("getUser"),
+    REMOVE_USER("removeUser");
+
+    private final String methodName;
+
+    UserMethods(String methodName) {
+        this.methodName = methodName;
+    }
 }

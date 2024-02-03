@@ -14,7 +14,6 @@ import static course_project.envPropertiesSetup.EnvCookiesSetup.COOKIE_NAME;
 import static course_project.envPropertiesSetup.EnvCookiesSetup.COOKIE_VALUE;
 
 public class PreConditions {
-
     @Given("Login page should be opened")
     public void openLoginPage() {
         open(BASE_URL);

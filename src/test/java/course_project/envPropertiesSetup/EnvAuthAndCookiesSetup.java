@@ -18,7 +18,6 @@ public class EnvAuthAndCookiesSetup {
         if (BASE_URL == null) {
             BASE_URL = propertyValue(PATH_TO_RESOURCE, ENV_PROPERTIES_FILE_NAME, "baseURL");
         }
-
         API_URL = BASE_URL + API_URL_SUFFIX;
     }
 }

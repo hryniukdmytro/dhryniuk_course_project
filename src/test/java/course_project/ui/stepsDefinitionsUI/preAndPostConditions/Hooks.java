@@ -8,19 +8,18 @@ import static course_project.envPropertiesSetup.EnvAuthAndCookiesSetup.*;
 import static course_project.envPropertiesSetup.EnvCookiesSetup.cookieConstantsSetup;
 import static course_project.envPropertiesSetup.EnvTestDataSetup.mapTaskColumnsIds;
 import static course_project.envPropertiesSetup.EnvTestDataSetup.testDataConstantsSetup;
-
+import static course_project.envPropertiesSetup.Log4jInitializer.initializeLog4j;
 
 public class Hooks {
-
-    // Setup constants
+    // Setup constants & Log4j
     @Before
     public void beforeScenario() {
         authConstantsSetup();
         cookieConstantsSetup();
         testDataConstantsSetup();
         mapTaskColumnsIds();
+        initializeLog4j();
     }
-
 
     @After
     public void afterScenario() {

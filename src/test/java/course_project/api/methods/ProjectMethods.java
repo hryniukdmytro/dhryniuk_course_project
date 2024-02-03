@@ -1,11 +1,18 @@
 package course_project.api.methods;
 
-public class ProjectMethods {
+import lombok.Getter;
 
-    public static final String METHOD_GET_ALL_PROJECTS = "getAllProjects";
-    public static final String METHOD_GET_PROJECT_BY_ID = "getProjectById";
-    public static final String METHOD_CREATE_PROJECT = "createProject";
-    public static final String METHOD_REMOVE_PROJECT = "removeProject";
-    public  static final String METHOD_ADD_PROJECT_USER ="addProjectUser";
+@Getter
+public enum ProjectMethods {
+    GET_ALL_PROJECTS("getAllProjects"),
+    GET_PROJECT_BY_ID("getProjectById"),
+    CREATE_PROJECT("createProject"),
+    REMOVE_PROJECT("removeProject"),
+    ADD_PROJECT_USER("addProjectUser");
 
+    private final String methodName;
+
+    ProjectMethods(String methodName) {
+        this.methodName = methodName;
+    }
 }

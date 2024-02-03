@@ -13,7 +13,7 @@ Feature: [UI] Project Test Сases
   Scenario: Verify that project can be closed
     # Preconditions
     When API request to create a project with name "Project Closure Test" was sent
-    Then Project with name "Project Closure Test" should be created
+    Then Verify that project with name "Project Closure Test" is created
     Given User should be logged in
     And User should have project opened
     # Steps

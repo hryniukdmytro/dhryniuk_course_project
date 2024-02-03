@@ -9,9 +9,9 @@ import java.util.Map;
 import java.util.function.Supplier;
 
 import static com.codeborne.selenide.Selenide.$;
-@Getter
-public class LoginPageElements extends BasePage{
 
+@Getter
+public class LoginPageElements extends BasePage {
     private final SelenideElement loginTextField = $("[id='form-username']");
     private final SelenideElement passwordTextField = $("[id='form-password']");
     private final SelenideElement loginButton = $("[type=submit]");

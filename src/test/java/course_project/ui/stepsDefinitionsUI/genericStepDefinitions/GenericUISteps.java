@@ -17,8 +17,7 @@ import java.util.Map;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.sleep;
 
-public class GenericStepDefinitions {
-
+public class GenericUISteps {
     LoginPageElements loginPage = new LoginPageElements();
     MainPageElements mainPage = new MainPageElements();
     ProjectPageElements projectPage = new ProjectPageElements();
@@ -38,21 +37,21 @@ public class GenericStepDefinitions {
 
     // Asserts
     @Then("The {element} should be displayed")
-    public void elementIsDisplayed(SelenideElement element) {
+    public void verifyThatElementIsDisplayed(SelenideElement element) {
         Assert.assertTrue(element.isDisplayed());
     }
 
     @Then("Text {string} should be displayed in {element}")
-    public void doesElementContainsText(String text, SelenideElement element) {
+    public void verifyThatElementContainsText(String text, SelenideElement element) {
         Assert.assertEquals(element.getText(), text);
     }
 
     @Then("Trimmed text of the {element} should be {string}")
-    public void checkElementText(SelenideElement element, String expectedState) {
+    public void verifyElementText(SelenideElement element, String expectedState) {
         String rawState = element.getText();
 
         String[] words = rawState.split("\\s+");
-        String actualState = words[words.length -1];
+        String actualState = words[words.length - 1];
 
         sleep(500);
         Assert.assertEquals(actualState, expectedState);
@@ -85,5 +84,4 @@ public class GenericStepDefinitions {
         pages.put("Project_Page", projectPage);
         return pages;
     }
-
 }

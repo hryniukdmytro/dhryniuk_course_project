@@ -10,9 +10,9 @@ import java.util.Map;
 import java.util.function.Supplier;
 
 import static com.codeborne.selenide.Selenide.$;
-@Getter
-public class MainPageElements extends BasePage{
 
+@Getter
+public class MainPageElements extends BasePage {
     public final SelenideElement newProjectButton = $(".page-header ul li:first-of-type");
     public final SelenideElement mainPageBody = $("[id='main']");
 

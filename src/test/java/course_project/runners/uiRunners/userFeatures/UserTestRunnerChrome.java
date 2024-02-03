@@ -15,13 +15,11 @@ import org.testng.annotations.DataProvider;
         glue = {"course_project.ui.stepsDefinitionsUI", "course_project.api.stepsDefinitionsAPI"}
 )
 public class UserTestRunnerChrome extends AbstractTestNGCucumberTests {
-
     @Override
     @DataProvider
     public Object[][] scenarios() {
         Configuration.browser = "chrome";
         Configuration.headless = false;
-
         return super.scenarios();
     }
 }

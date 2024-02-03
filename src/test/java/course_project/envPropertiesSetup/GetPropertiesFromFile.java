@@ -7,11 +7,8 @@ import java.util.Properties;
 import static java.util.Objects.isNull;
 
 public class GetPropertiesFromFile {
-
     public static final String PATH_TO_RESOURCE = "src/test/resources/properties/";
-
     public static final String ENV_PROPERTIES_FILE_NAME = "env.properties";
-
     public static final String TESTDATA_PROPERTIES_FILE_NAME = "testData.properties";
 
     public static String propertyValue(String pathToFile, String propertyFileName, String propertyName) {

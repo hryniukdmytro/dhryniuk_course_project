@@ -2,12 +2,12 @@ package course_project.ui.stepsDefinitionsUI;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
-import course_project.ui.elements.ProjectPageElements;
+import ui.pages.ProjectPageElements;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Condition.*;
-import static course_project.envPropertiesSetup.EnvTestDataSetup.*;
+import static setup.EnvTestDataSetup.*;
 
 public class ProjectPageSteps extends ProjectPageElements {
 

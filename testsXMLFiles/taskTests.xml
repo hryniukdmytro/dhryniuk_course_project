@@ -2,37 +2,37 @@
 <suite name="Task Tests">
     <test name="Task API Tests">
         <classes>
-            <class name="course_project.runners.apiRunners.taskFeatures.TaskAPITestRunner"/>
+            <class name="runners.apiRunners.taskFeatures.TaskAPITestRunner"/>
         </classes>
     </test>
     <test name="[Chrome] Task UI Tests">
         <classes>
-            <class name="course_project.runners.uiRunners.taskFeatures.TaskTestRunnerChrome"/>
+            <class name="runners.uiRunners.taskFeatures.TaskTestRunnerChrome"/>
         </classes>
     </test>
     <test name="[Chrome Headless] Task UI Tests">
         <classes>
-            <class name="course_project.runners.uiRunners.taskFeatures.TaskTestRunnerChromeHeadless"/>
+            <class name="runners.uiRunners.taskFeatures.TaskTestRunnerChromeHeadless"/>
         </classes>
     </test>
     <test name="[Firefox] Task UI Tests">
         <classes>
-            <class name="course_project.runners.uiRunners.taskFeatures.TaskTestRunnerFirefox"/>
+            <class name="runners.uiRunners.taskFeatures.TaskTestRunnerFirefox"/>
         </classes>
     </test>
     <test name="[Chrome] Task Rerun failed UI Tests">
         <classes>
-            <class name="course_project.runners.uiRunners.retryFailed.RerunTestRunnerChrome"/>
+            <class name="runners.uiRunners.retryFailed.RerunTestRunnerChrome"/>
         </classes>
     </test>
     <test name="[Chrome Headless] Task Rerun failed UI Tests">
         <classes>
-            <class name="course_project.runners.uiRunners.retryFailed.RerunTestRunnerChromeHeadless"/>
+            <class name="runners.uiRunners.retryFailed.RerunTestRunnerChromeHeadless"/>
         </classes>
     </test>
     <test name="[Firefox] Task Rerun failed UI Tests">
         <classes>
-            <class name="course_project.runners.uiRunners.retryFailed.RerunTestRunnerFirefox"/>
+            <class name="runners.uiRunners.retryFailed.RerunTestRunnerFirefox"/>
         </classes>
     </test>
 </suite>

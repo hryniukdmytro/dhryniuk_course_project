@@ -2,37 +2,37 @@
 <suite name="User Tests">
     <test name="User API Tests">
         <classes>
-            <class name="course_project.runners.apiRunners.userFeatures.UserAPITestRunner"/>
+            <class name="runners.apiRunners.userFeatures.UserAPITestRunner"/>
         </classes>
     </test>
     <test name="[Chrome] User UI Tests">
         <classes>
-            <class name="course_project.runners.uiRunners.userFeatures.UserTestRunnerChrome"/>
+            <class name="runners.uiRunners.userFeatures.UserTestRunnerChrome"/>
         </classes>
     </test>
     <test name="[Chrome Headless] User UI Tests">
         <classes>
-            <class name="course_project.runners.uiRunners.userFeatures.UserTestRunnerChromeHeadless"/>
+            <class name="runners.uiRunners.userFeatures.UserTestRunnerChromeHeadless"/>
         </classes>
     </test>
     <test name="[Firefox] User UI Tests">
         <classes>
-            <class name="course_project.runners.uiRunners.userFeatures.UserTestRunnerFirefox"/>
+            <class name="runners.uiRunners.userFeatures.UserTestRunnerFirefox"/>
         </classes>
     </test>
     <test name="[Chrome] User Rerun failed UI Tests">
         <classes>
-            <class name="course_project.runners.uiRunners.retryFailed.RerunTestRunnerChrome"/>
+            <class name="runners.uiRunners.retryFailed.RerunTestRunnerChrome"/>
         </classes>
     </test>
     <test name="[Chrome Headless] User Rerun failed UI Tests">
         <classes>
-            <class name="course_project.runners.uiRunners.retryFailed.RerunTestRunnerChromeHeadless"/>
+            <class name="runners.uiRunners.retryFailed.RerunTestRunnerChromeHeadless"/>
         </classes>
     </test>
     <test name="[Firefox] User Rerun failed UI Tests">
         <classes>
-            <class name="course_project.runners.uiRunners.retryFailed.RerunTestRunnerFirefox"/>
+            <class name="runners.uiRunners.retryFailed.RerunTestRunnerFirefox"/>
         </classes>
     </test>
 </suite>

@@ -3,7 +3,7 @@ package api.queries;
 import lombok.Getter;
 
 @Getter
-public enum ResponseStructure {
+public enum ResponseResultStructure {
     RESULT("result"),
     RESULT_NAME("result.name"),
     RESULT_USERNAME("result.username"),
@@ -11,7 +11,7 @@ public enum ResponseStructure {
 
     private final String responseResultElement;
 
-    ResponseStructure(String responseResultElement) {
+    ResponseResultStructure(String responseResultElement) {
         this.responseResultElement = responseResultElement;
     }
 }

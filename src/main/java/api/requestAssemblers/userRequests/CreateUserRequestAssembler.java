@@ -13,7 +13,6 @@ public class CreateUserRequestAssembler {
                 .builder()
                 .method(UserMethods.CREATE_USER.getMethodName())
                 .build();
-
         UserParamsData userParams = UserParamsData
                 .builder()
                 .username(EnvTestDataSetup.TESTDATA_NEW_USER_NAME)

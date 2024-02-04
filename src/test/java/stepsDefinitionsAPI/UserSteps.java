@@ -7,8 +7,8 @@ import org.testng.Assert;
 
 import static api.queries.QueryFormats.*;
 
-import static api.queries.ResponseStructure.RESULT;
-import static api.queries.ResponseStructure.RESULT_USERNAME;
+import static api.queries.ResponseResultStructure.RESULT;
+import static api.queries.ResponseResultStructure.RESULT_USERNAME;
 import static api.requestAssemblers.userRequests.CreateUserRequestAssembler.assembleCreateUserRequest;
 import static api.requestAssemblers.userRequests.GetUserRequestAssembler.assembleGetUserRequest;
 import static api.requestAssemblers.userRequests.RemoveUserRequestAssembler.assembleRemoveUserRequest;

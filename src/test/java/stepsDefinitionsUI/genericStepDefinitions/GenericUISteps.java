@@ -47,13 +47,13 @@ public class GenericUISteps {
     }
 
     @Then("Trimmed text of the {element} should be {string}")
-    public void verifyElementText(SelenideElement element, String expectedState) {
+    public void verifyTrimmedElementText(SelenideElement element, String expectedState) {
         String rawState = element.getText();
 
         String[] words = rawState.split("\\s+");
         String actualState = words[words.length - 1];
 
-        sleep(500);
+        sleep(100);
         Assert.assertEquals(actualState, expectedState);
     }
 

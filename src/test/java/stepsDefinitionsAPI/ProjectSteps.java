@@ -6,8 +6,8 @@ import io.restassured.response.Response;
 import org.testng.Assert;
 
 import static api.queries.QueryFormats.*;
-import static api.queries.ResponseStructure.RESULT;
-import static api.queries.ResponseStructure.RESULT_NAME;
+import static api.queries.ResponseResultStructure.RESULT;
+import static api.queries.ResponseResultStructure.RESULT_NAME;
 import static api.requestAssemblers.projectRequests.AddProjectMemberRequestAssembler.assembleAddProjectMemberRequest;
 import static api.requestAssemblers.projectRequests.CreateProjectRequestWithSetNameAssembler.assembleCreateProjectWithSetNameRequest;
 import static api.requestAssemblers.projectRequests.GetProjectByIdRequestAssembler.assembleGetProjectByIdRequest;

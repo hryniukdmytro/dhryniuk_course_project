@@ -6,8 +6,8 @@ import io.restassured.response.Response;
 import org.testng.Assert;
 
 import static api.queries.QueryFormats.*;
-import static api.queries.ResponseStructure.RESULT;
-import static api.queries.ResponseStructure.RESULT_TITLE;
+import static api.queries.ResponseResultStructure.RESULT;
+import static api.queries.ResponseResultStructure.RESULT_TITLE;
 import static api.requestAssemblers.taskRequests.CreateTaskRequestAssembler.assembleCreateTaskRequest;
 import static api.requestAssemblers.taskRequests.GetTaskRequestAssembler.assembleGetTaskRequest;
 import static api.requestAssemblers.taskRequests.RemoveTaskRequestAssembler.assembleRemoveTaskRequest;

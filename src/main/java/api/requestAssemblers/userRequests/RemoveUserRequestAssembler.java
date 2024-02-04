@@ -1,10 +1,8 @@
 package api.requestAssemblers.userRequests;
 
-
 import api.requestElements.genericRequestData.GenericData;
 import api.methods.UserMethods;
 import org.json.JSONObject;
-
 
 public class RemoveUserRequestAssembler {
     public static JSONObject assembleRemoveUserRequest(String userIdToRemove) {

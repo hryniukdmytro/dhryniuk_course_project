@@ -6,11 +6,14 @@ import io.restassured.response.Response;
 import org.testng.Assert;
 
 import static api.queries.QueryFormats.*;
+import static api.queries.ResponseStructure.RESULT;
+import static api.queries.ResponseStructure.RESULT_NAME;
 import static api.requestAssemblers.projectRequests.AddProjectMemberRequestAssembler.assembleAddProjectMemberRequest;
 import static api.requestAssemblers.projectRequests.CreateProjectRequestWithSetNameAssembler.assembleCreateProjectWithSetNameRequest;
 import static api.requestAssemblers.projectRequests.GetProjectByIdRequestAssembler.assembleGetProjectByIdRequest;
 import static api.requestAssemblers.projectRequests.RemoveProjectRequestAssembler.assembleRemoveProjectRequest;
 import static envPropertiesSetup.EnvAuthAndCookiesSetup.*;
+import static stepsDefinitionsAPI.GenericAPISteps.getResponseResultElement;
 
 public class ProjectSteps {
     public static String newProjectId;
@@ -20,7 +23,7 @@ public class ProjectSteps {
         Response getProjectByIdResponse = getRequest(API_USERNAME, API_TOKEN,
                 assembleGetProjectByIdRequest(newProjectId).toString());
         GenericAPISteps.assertAPIResponseStatusCode(getProjectByIdResponse);
-        String actualProjectName = getProjectByIdResponse.jsonPath().getString("result.name");
+        String actualProjectName = getResponseResultElement(getProjectByIdResponse, RESULT_NAME);
         Assert.assertEquals(actualProjectName, projectName);
     }
 
@@ -36,7 +39,7 @@ public class ProjectSteps {
         Response getProjectByIdResponse = getRequest(API_USERNAME, API_TOKEN,
                 assembleGetProjectByIdRequest(newProjectId).toString());
         GenericAPISteps.assertAPIResponseStatusCode(getProjectByIdResponse);
-        String actualProjectState = getProjectByIdResponse.jsonPath().getString("result");
+        String actualProjectState = getResponseResultElement(getProjectByIdResponse, RESULT);
         Assert.assertNull(actualProjectState);
     }
 
@@ -45,7 +48,7 @@ public class ProjectSteps {
         Response createProjectWithSetNameResponse = postRequest(API_USERNAME, API_TOKEN,
                 assembleCreateProjectWithSetNameRequest(projectName).toString());
         GenericAPISteps.assertAPIResponseStatusCode(createProjectWithSetNameResponse);
-        newProjectId = createProjectWithSetNameResponse.jsonPath().getString("result");
+        newProjectId = getResponseResultElement(createProjectWithSetNameResponse, RESULT);
     }
 
     @When("User was set as member of last created project via API")

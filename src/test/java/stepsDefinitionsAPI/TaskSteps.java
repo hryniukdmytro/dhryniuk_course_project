@@ -6,10 +6,13 @@ import io.restassured.response.Response;
 import org.testng.Assert;
 
 import static api.queries.QueryFormats.*;
+import static api.queries.ResponseStructure.RESULT;
+import static api.queries.ResponseStructure.RESULT_TITLE;
 import static api.requestAssemblers.taskRequests.CreateTaskRequestAssembler.assembleCreateTaskRequest;
 import static api.requestAssemblers.taskRequests.GetTaskRequestAssembler.assembleGetTaskRequest;
 import static api.requestAssemblers.taskRequests.RemoveTaskRequestAssembler.assembleRemoveTaskRequest;
 import static envPropertiesSetup.EnvAuthAndCookiesSetup.*;
+import static stepsDefinitionsAPI.GenericAPISteps.getResponseResultElement;
 
 public class TaskSteps {
     public static String newTaskId;
@@ -19,7 +22,7 @@ public class TaskSteps {
         Response createTaskResponse = postRequest(API_USERNAME, API_TOKEN,
                 assembleCreateTaskRequest(ProjectSteps.newProjectId, taskTitle).toString());
         GenericAPISteps.assertAPIResponseStatusCode(createTaskResponse);
-        newTaskId = createTaskResponse.jsonPath().getString("result");
+        newTaskId = getResponseResultElement(createTaskResponse, RESULT);
     }
 
     @Then("Verify that task with name {string} is created")
@@ -27,7 +30,7 @@ public class TaskSteps {
         Response getTaskResponse = getRequest(API_USERNAME, API_TOKEN,
                 assembleGetTaskRequest(newTaskId).toString());
         GenericAPISteps.assertAPIResponseStatusCode(getTaskResponse);
-        String actualTaskTitle = getTaskResponse.jsonPath().getString("result.title");
+        String actualTaskTitle = getResponseResultElement(getTaskResponse, RESULT_TITLE);
         Assert.assertEquals(actualTaskTitle, taskTitle);
     }
 
@@ -43,7 +46,7 @@ public class TaskSteps {
         Response getTaskResponse = getRequest(API_USERNAME, API_TOKEN,
                 assembleGetTaskRequest(newTaskId).toString());
         GenericAPISteps.assertAPIResponseStatusCode(getTaskResponse);
-        String doesTaskExist = getTaskResponse.jsonPath().getString("result");
+        String doesTaskExist = getResponseResultElement(getTaskResponse, RESULT);
         Assert.assertNull(doesTaskExist);
     }
 }

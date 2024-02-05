@@ -26,7 +26,7 @@ public class RerunTestRunnerChrome extends AbstractTestNGCucumberTests {
         String filePath = "target/failed-scenarios/failedScenariosChrome";
         File file = new File(filePath);
         if (file.exists() && file.length() > 0) {
-            System.out.println("Failed scenarios found for Chrome. Running tests again.");
+            log.info("Failed scenarios found for Chrome. Running tests again.");
             return super.scenarios();
         } else {
             log.info("No failed scenarios for Chrome");
